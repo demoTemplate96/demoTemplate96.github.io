@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- HTML and CSS by Anton Neverov | neverov12@gmail.com  -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+	<title>TITLE</title>
+	<link rel="stylesheet" href="css/tiny-slider.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+	<div class="container header__container">
+		<div class="menu-categories" style="display: none">
+			<button class="menu-categories__close"></button>
+			<div class="menu-categories__container">
+				<div class="menu-categories__location">
+					<i class="menu-categories__icon menu-categories__icon-location"></i> Москва и область
+				</div>
+				<div class="menu-categories__profile">
+					<button class="menu-categories__button">
+						Вход <i class="menu-categories__icon menu-categories__icon-arrow"></i>
+					</button>
+					<button class="menu-categories__button">
+						Регистрация <i class="menu-categories__icon menu-categories__icon-arrow"></i>
+					</button>
+				</div>
+				<!-- <button href="#" class="menu-categories__item menu-categories__back">
+					<i class="menu-categories__icon menu-categories__icon-back"></i> Назад
+				</button> -->
+				<div class="menu-categories__list">
+					<a href="#" class="menu-categories__item menu-categories__item-extendable">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/menu-icon-fire.svg)"></i> Скидки месяца
+					</a>
+					
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-logo.svg)"></i> Юрлицам и ИП
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-recipe.svg)"></i> Рецепты
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-subscribe.svg)"></i> Подписка на доставку
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-parent.svg)"></i> Забота о родителях
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-school.svg)"></i> Школа потребителя
+					</a>
+
+					<a href="#" class="menu-categories__item menu-categories__item-linked">
+						<span class="styled-link styled-link-dotted">Укажите адрес доставки</a>
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-grey">
+						Условия доставки
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-grey">
+						Партнёры
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-grey">
+						Помощь
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-grey">
+						Статус заказа
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="header__desktop">
+			<div class="header__header">
+				<div class="header__logo">
+					<a href="#">
+						<img src="img/logo.svg" alt="Greensmart">
+					</a>
+				</div>
+				<div class="header__location">
+					<a href="#">Москва</a>
+				</div>
+				<div class="header__delivery">
+					<div>Ближайшая доставка <span>19 марта</span></div>
+				</div>
+				<div class="header__menu">
+					<div class="header__menu-link">
+						<a href="#">Акции</a>
+					</div>
+					<div class="header__menu-link header__menu-link_crowned">
+						<a href="#">Greensmart Prime</a>
+					</div>
+					<div class="header__menu-link">
+						<a href="#">Юрлицам</a>
+					</div>
+				</div>
+			</div>
+			<div class="header__search">
+				<div class="header__catalog">
+					<a href="#">Каталог продуктов</a>
+				</div>
+				<form class="header__searchbar">
+					<input type="text" placeholder="Я хочу купить, например “Молоко”">
+					<button></button>
+				</form>
+				<div class="header__select-location">
+					<button>Укажите адрес доставки</button>
+				</div>
+				<div class="header__profile">
+					<button class="header__profile-button" data-micromodal-trigger="auth-sms-modal"></button>
+				</div>
+				<div class="header-cart">
+					<button class="header-cart__button">
+						<i class="header-cart__icon"></i>
+						<span class="header-cart__price js__cart-count">0,00 ₽</span>
+						<span class="header-cart__count js__cart-price">0</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="header__mobile">
+			<button class="header__burger"></button>
+			<a href="#" class="header__logo"><img src="img/mobile-logo.svg" alt="GreenSmart"></a>
+			<button class="header__search"></button>
+			<button class="header__profile" data-micromodal-trigger="auth-sms-modal"></button>
+			<button class="header__cart">
+				<span class="header-cart__count js__cart-price">3</span>
+			</button>
+		</div>
+		<div class="demo-cart demo-cart_active" style="display: none">
+			<div class="demo-cart__body">
+				<div class="demo-cart__item">
+					<button class="demo-cart__remove"></button>
+					<a href="#" class="demo-cart__image" style="background-image: url(/img/milk.jpg)"></a>
+					<a href="#" class="demo-cart__data">
+						<span class="demo-cart__title">Филе грудки утиное</span>
+						<span class="demo-cart__count">1 шт Х 795 ₽/0,93 л</span>
+					</a>
+				</div>
+				<div class="demo-cart__item">
+					<button class="demo-cart__remove"></button>
+					<a href="#" class="demo-cart__image" style="background-image: url(/img/milk.jpg)"></a>
+					<a href="#" class="demo-cart__data">
+						<span class="demo-cart__title">Филе грудки утиное</span>
+						<span class="demo-cart__count">1 шт Х 795 ₽/0,93 л</span>
+					</a>
+				</div>
+				<div class="demo-cart__item">
+					<button class="demo-cart__remove"></button>
+					<a href="#" class="demo-cart__image" style="background-image: url(/img/milk.jpg)"></a>
+					<a href="#" class="demo-cart__data">
+						<span class="demo-cart__title">Филе грудки утиное</span>
+						<span class="demo-cart__count">1 шт Х 795 ₽/0,93 л</span>
+					</a>
+				</div>
+				<div class="demo-cart__footer">
+					<a href="#" class="demo-cart__button">Перейти в корзину</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<section class="product-page">
+    <div class="container">
+        <div class="breadcrumbs product-page__breadcrumbs desktop-only">
+            <div class="breadcrumbs__list">
+                <li class="breadcrumbs__item"><a href="#">Главная</a></li>
+                <li class="breadcrumbs__item"><a href="#">Производитель</a></li>
+                <li class="breadcrumbs__item"><a href="#">Андрей Асламов</a></li>
+            </div>
+        </div>
+        <a href="#" class="back mobile-only">назад</a>
+        <div class="providers-page__container">
+            <div class="product-page__left">
+                <div class="providers-player">
+                    <img src="img/providers-player__play.png" alt="" class="providers-player__play">
+                </div>
+            </div>
+            <div class="break mobile-only"></div>
+            <div class="product-page__right product-page__right_providers">
+                <div class="product-page-info">
+                    <img src="img/product-page-info__providers-ico.svg" alt="" class="product-page-info__providers-ico">
+                    <div class="product-page-info__main product-page-info__main_providers">
+                        <p class="product-page-info__title">Андрей Асламов</p>
+                        <div class="product-page-info__ratings">
+                            <div class="rating product-page-info__rating">
+                                <div class="rating__star"></div>
+                                <div class="rating__star"></div>
+                                <div class="rating__star"></div>
+                                <div class="rating__star"></div>
+                                <div class="rating__star rating__star--empty"></div>
+                            </div>
+                            <p class="product-page-info__review-counter">77 отзывов</p>
+                        </div>
+                    </div>
+                    <hr class="product-page-info__delimiter product-page-info__delimiter_providers desktop-only">
+                    <p class="product-page-info__description desktop-only">
+                        В Липецкой области Андрей Асламов изготавливает сыродавленное подсолнечное масло холодного отжима.
+                        <br><br>
+                        Это значит, что температура в процессе производства не поднимается выше 50 градусов, что позволяет сохранить все белки и витамины, которые были в семечке. Поэтому это масло такое полезное!
+                        <br><br>
+                        Это значит, что температура в процессе производства не поднимается выше 50 градусов,  полезное!
+                    </p>
+                </div>
+            </div>
+            <div class="break"></div>
+            <div class="info">
+                <div class="info__navs">
+                    <a href="#" class="info__nav info__nav--small">Продукция</a>
+                    <a href="#" class="info__nav info__nav--small info__nav--active">О поставщике</a>
+                    <a href="#" class="info__nav info__nav--small">Сертификаты</a>
+                    <a href="#" class="info__nav info__nav--small">Отзывы о продуктах</a>
+                </div>
+                <div class="info__items">
+                    <div class="info__item">
+                        <div class="info__production">
+                            <div class="product">
+                            	<div class="product__image">
+                            		<div class="product__count desktop-only" style="display: none">
+                            			<div class="product__minus"></div>
+                            			<div class="product__count-number">2</div>
+                            			<div class="product__plus"></div>
+                            			<p class="product__count-title">в корзине</p>
+                            		</div>
+                            		<div class="product__delivery">
+                            			<div class="product__delivery-icon product__delivery-tue">Вт</div>
+                            			<div class="product__delivery-icon product__delivery-thu">Чт</div>
+                            			<div class="product__delivery-icon product__delivery-sat">Сб</div>
+                            			<div class="product__delivery-icon product__delivery-sun">Вс</div>
+                            		</div>
+                            		<div class="product__button-special mobile-only">
+                            			<span class="product__type-of-food">ОРГАНИК</span>
+                            		</div>
+                            	</div>
+                            	<div class="product__info">
+                            		<div class="product__title">Молоко 3,2 % <img src="../img/Like.png" alt="Like"/> </div>
+                            		<div class="product__author">от Вадима Рошки</div>
+                            		<div class="product__old-price"><span class="cross-out">140 ₽</span></div>
+                            		<div class="product__price">95 ₽<span> / 0,93 л</span></div>
+                            		<div class="product__rating rating">
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            		</div>
+                            		<div class="product__add-to-cart">
+                            			<div class="product__button-price">
+                            				95 ₽<span> / 0,93 л</span>
+                            			</div>
+                            			<span class="product__img"></span>
+                            		</div>
+                            	</div>
+                            	<a href="#" class="product__link"></a>
+                            </div>
+                            <div class="product">
+                            	<div class="product__image">
+                            		<div class="product__count desktop-only" style="display: none">
+                            			<div class="product__minus"></div>
+                            			<div class="product__count-number">2</div>
+                            			<div class="product__plus"></div>
+                            			<p class="product__count-title">в корзине</p>
+                            		</div>
+                            		<div class="product__delivery">
+                            			<div class="product__delivery-icon product__delivery-tue">Вт</div>
+                            			<div class="product__delivery-icon product__delivery-thu">Чт</div>
+                            			<div class="product__delivery-icon product__delivery-sat">Сб</div>
+                            			<div class="product__delivery-icon product__delivery-sun">Вс</div>
+                            		</div>
+                            		<div class="product__button-special mobile-only">
+                            			<span class="product__type-of-food">ОРГАНИК</span>
+                            		</div>
+                            	</div>
+                            	<div class="product__info">
+                            		<div class="product__title">Молоко 3,2 % <img src="../img/Like.png" alt="Like"/> </div>
+                            		<div class="product__author">от Вадима Рошки</div>
+                            		<div class="product__old-price"><span class="cross-out">140 ₽</span></div>
+                            		<div class="product__price">95 ₽<span> / 0,93 л</span></div>
+                            		<div class="product__rating rating">
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            		</div>
+                            		<div class="product__add-to-cart">
+                            			<div class="product__button-price">
+                            				95 ₽<span> / 0,93 л</span>
+                            			</div>
+                            			<span class="product__img"></span>
+                            		</div>
+                            	</div>
+                            	<a href="#" class="product__link"></a>
+                            </div>
+                            <div class="product">
+                            	<div class="product__image">
+                            		<div class="product__count desktop-only" style="display: none">
+                            			<div class="product__minus"></div>
+                            			<div class="product__count-number">2</div>
+                            			<div class="product__plus"></div>
+                            			<p class="product__count-title">в корзине</p>
+                            		</div>
+                            		<div class="product__delivery">
+                            			<div class="product__delivery-icon product__delivery-tue">Вт</div>
+                            			<div class="product__delivery-icon product__delivery-thu">Чт</div>
+                            			<div class="product__delivery-icon product__delivery-sat">Сб</div>
+                            			<div class="product__delivery-icon product__delivery-sun">Вс</div>
+                            		</div>
+                            		<div class="product__button-special mobile-only">
+                            			<span class="product__type-of-food">ОРГАНИК</span>
+                            		</div>
+                            	</div>
+                            	<div class="product__info">
+                            		<div class="product__title">Молоко 3,2 % <img src="../img/Like.png" alt="Like"/> </div>
+                            		<div class="product__author">от Вадима Рошки</div>
+                            		<div class="product__old-price"><span class="cross-out">140 ₽</span></div>
+                            		<div class="product__price">95 ₽<span> / 0,93 л</span></div>
+                            		<div class="product__rating rating">
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            		</div>
+                            		<div class="product__add-to-cart">
+                            			<div class="product__button-price">
+                            				95 ₽<span> / 0,93 л</span>
+                            			</div>
+                            			<span class="product__img"></span>
+                            		</div>
+                            	</div>
+                            	<a href="#" class="product__link"></a>
+                            </div>
+                            <div class="product">
+                            	<div class="product__image">
+                            		<div class="product__count desktop-only" style="display: none">
+                            			<div class="product__minus"></div>
+                            			<div class="product__count-number">2</div>
+                            			<div class="product__plus"></div>
+                            			<p class="product__count-title">в корзине</p>
+                            		</div>
+                            		<div class="product__delivery">
+                            			<div class="product__delivery-icon product__delivery-tue">Вт</div>
+                            			<div class="product__delivery-icon product__delivery-thu">Чт</div>
+                            			<div class="product__delivery-icon product__delivery-sat">Сб</div>
+                            			<div class="product__delivery-icon product__delivery-sun">Вс</div>
+                            		</div>
+                            		<div class="product__button-special mobile-only">
+                            			<span class="product__type-of-food">ОРГАНИК</span>
+                            		</div>
+                            	</div>
+                            	<div class="product__info">
+                            		<div class="product__title">Молоко 3,2 % <img src="../img/Like.png" alt="Like"/> </div>
+                            		<div class="product__author">от Вадима Рошки</div>
+                            		<div class="product__old-price"><span class="cross-out">140 ₽</span></div>
+                            		<div class="product__price">95 ₽<span> / 0,93 л</span></div>
+                            		<div class="product__rating rating">
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            		</div>
+                            		<div class="product__add-to-cart">
+                            			<div class="product__button-price">
+                            				95 ₽<span> / 0,93 л</span>
+                            			</div>
+                            			<span class="product__img"></span>
+                            		</div>
+                            	</div>
+                            	<a href="#" class="product__link"></a>
+                            </div>
+                            <div class="product">
+                            	<div class="product__image">
+                            		<div class="product__count desktop-only" style="display: none">
+                            			<div class="product__minus"></div>
+                            			<div class="product__count-number">2</div>
+                            			<div class="product__plus"></div>
+                            			<p class="product__count-title">в корзине</p>
+                            		</div>
+                            		<div class="product__delivery">
+                            			<div class="product__delivery-icon product__delivery-tue">Вт</div>
+                            			<div class="product__delivery-icon product__delivery-thu">Чт</div>
+                            			<div class="product__delivery-icon product__delivery-sat">Сб</div>
+                            			<div class="product__delivery-icon product__delivery-sun">Вс</div>
+                            		</div>
+                            		<div class="product__button-special mobile-only">
+                            			<span class="product__type-of-food">ОРГАНИК</span>
+                            		</div>
+                            	</div>
+                            	<div class="product__info">
+                            		<div class="product__title">Молоко 3,2 % <img src="../img/Like.png" alt="Like"/> </div>
+                            		<div class="product__author">от Вадима Рошки</div>
+                            		<div class="product__old-price"><span class="cross-out">140 ₽</span></div>
+                            		<div class="product__price">95 ₽<span> / 0,93 л</span></div>
+                            		<div class="product__rating rating">
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            		</div>
+                            		<div class="product__add-to-cart">
+                            			<div class="product__button-price">
+                            				95 ₽<span> / 0,93 л</span>
+                            			</div>
+                            			<span class="product__img"></span>
+                            		</div>
+                            	</div>
+                            	<a href="#" class="product__link"></a>
+                            </div>
+                            <div class="product">
+                            	<div class="product__image">
+                            		<div class="product__count desktop-only" style="display: none">
+                            			<div class="product__minus"></div>
+                            			<div class="product__count-number">2</div>
+                            			<div class="product__plus"></div>
+                            			<p class="product__count-title">в корзине</p>
+                            		</div>
+                            		<div class="product__delivery">
+                            			<div class="product__delivery-icon product__delivery-tue">Вт</div>
+                            			<div class="product__delivery-icon product__delivery-thu">Чт</div>
+                            			<div class="product__delivery-icon product__delivery-sat">Сб</div>
+                            			<div class="product__delivery-icon product__delivery-sun">Вс</div>
+                            		</div>
+                            		<div class="product__button-special mobile-only">
+                            			<span class="product__type-of-food">ОРГАНИК</span>
+                            		</div>
+                            	</div>
+                            	<div class="product__info">
+                            		<div class="product__title">Молоко 3,2 % <img src="../img/Like.png" alt="Like"/> </div>
+                            		<div class="product__author">от Вадима Рошки</div>
+                            		<div class="product__old-price"><span class="cross-out">140 ₽</span></div>
+                            		<div class="product__price">95 ₽<span> / 0,93 л</span></div>
+                            		<div class="product__rating rating">
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            		</div>
+                            		<div class="product__add-to-cart">
+                            			<div class="product__button-price">
+                            				95 ₽<span> / 0,93 л</span>
+                            			</div>
+                            			<span class="product__img"></span>
+                            		</div>
+                            	</div>
+                            	<a href="#" class="product__link"></a>
+                            </div>
+                            <div class="product">
+                            	<div class="product__image">
+                            		<div class="product__count desktop-only" style="display: none">
+                            			<div class="product__minus"></div>
+                            			<div class="product__count-number">2</div>
+                            			<div class="product__plus"></div>
+                            			<p class="product__count-title">в корзине</p>
+                            		</div>
+                            		<div class="product__delivery">
+                            			<div class="product__delivery-icon product__delivery-tue">Вт</div>
+                            			<div class="product__delivery-icon product__delivery-thu">Чт</div>
+                            			<div class="product__delivery-icon product__delivery-sat">Сб</div>
+                            			<div class="product__delivery-icon product__delivery-sun">Вс</div>
+                            		</div>
+                            		<div class="product__button-special mobile-only">
+                            			<span class="product__type-of-food">ОРГАНИК</span>
+                            		</div>
+                            	</div>
+                            	<div class="product__info">
+                            		<div class="product__title">Молоко 3,2 % <img src="../img/Like.png" alt="Like"/> </div>
+                            		<div class="product__author">от Вадима Рошки</div>
+                            		<div class="product__old-price"><span class="cross-out">140 ₽</span></div>
+                            		<div class="product__price">95 ₽<span> / 0,93 л</span></div>
+                            		<div class="product__rating rating">
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            			<div class="rating__star"></div>
+                            		</div>
+                            		<div class="product__add-to-cart">
+                            			<div class="product__button-price">
+                            				95 ₽<span> / 0,93 л</span>
+                            			</div>
+                            			<span class="product__img"></span>
+                            		</div>
+                            	</div>
+                            	<a href="#" class="product__link"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info__item info__item--active">
+                        <p class="info__p">В Задонском районе Липецкой области Андрей Асламов производит сыродавленное подсолнечное масло. «Мы располагаемся в селе Алексеевка, – рассказывает Андрей, – Первое масло в России тоже было сделано в Алексеевке. Вот только область была другая, Белгородская».</p>
+                        <p class="info__p"><span class="info__p_bold">Идея о производстве подсолнечного масла холодного отжима</span> появилась у Андрея еще 5 лет назад, однако первое масло было выдавлено в феврале 2017 года. Сейчас над этим непростым с технологической точки зрения делом трудится 6 человек. В команде единомышленников есть люди из разных уголков света: Луганск, Нижневартовск, Москва, теперь все они живут и работают в Липецкой области. Чтобы начать производство собственного масла была проделана большая работа: в селе Алексеевка команда нашла и полностью отремонтировала производственный цех, сейчас его площадь составляет 150 квадратных метров, в будущем Андрей планирует построить дополнительные маслохранилища. Отдельное внимание уделяли выбору оборудования: «Подходит не каждое, – рассказывает Андрей, – мы делаем масло холодного отжима, а это значит, что температура в прессе не должна подниматься выше 50 градусов Цельсия. Только такая температура позволяет сохранить все белки и витамины, которые были в семечке. Наш пресс для отжима масла изготавливался под заказ».</p>
+                        <p class="info__p"><span class="info__p_bold">На данный момент у Андрея нет своих полей.</span> Выращивать собственное сырье – это отдельная наука и направление, которому можно посвятить целую жизнь. Поэтому чаще всего происходит разделение производства и выращивания злаков. Андрей закупает семечки подсолнечника у фермерского хозяйства из своего же Задонского района Липецкой области в деревне Тербуны. «Мы поддерживаем своего производителя. Недалеко от нашего села мы нашли очень хорошее фермерское хозяйство. Здесь хорошего качества почва, наш поставщик имеет более 3 гектаров земель. При выращивании сельскохозяйственных культур, он дает землям «отдыхать», чередует культуры, что на выходе дает сырье высокого качества».</p>
+                        <p class="info__p">Команда выбирает семечки, основываясь на трех главных показателях: влажность (от 7,4 до 8%) и кислотность семечки, а также олеиновое число. Последнее непременно должно иметь высокие показатели, это будет означать, что в семечке содержится большое число омега-кислот. Андрей учитывает все вышеперечисленные показатели, поэтому полезные свойства его масла не уступают маслу оливковому.</p>
+                        <p class="info__p"><span class="info__p_bold">Процесс производства подсолнечного масла холодного отжима</span> происходит следующим образом: сначала сырье засыпается в специальный бункер, где происходит калибровка семечки. Далее семечка загружается в турбину, которая осуществляет его очистку: убирается мусор, палки и статическая пыль. После этого все семечки отправляются в рушку, здесь 80% семечек очищаются от шелухи. Теперь сырье отправляется в пресс, где из семян подсолнечника и выдавливается масло. Масло перегоняют насосом специальный бункер, здесь оно будет вызревать и перемешиваться миксером ближайшие 2 недели. Далее масло вновь подается на механический пресс, происходит два цикла фильтрации и разливается в тару.  Весь процесс приготовления масла холодного отжима занимает около месяца. Срок хранения масла - более 6 месяцев. Качество каждой партии масла подтверждается в лаборатории города Воронеж.</p>
+                    </div>
+                    <div class="info__item">
+                        <div class="info__sert">
+                            <img src="img/info__sert-img.jpg" alt="" class="info__sert-img">
+                            <img src="img/info__sert-img.jpg" alt="" class="info__sert-img">
+                            <img src="img/info__sert-img.jpg" alt="" class="info__sert-img">
+                            <img src="img/info__sert-img.jpg" alt="" class="info__sert-img">
+                        </div>
+                    </div>
+                    <div class="info__item">
+                        <div class="info-reviews">
+                            <div class="info-reviews__container">
+                                <div class="info-reviews__block info-reviews__block--full">
+                                    <div class="info-reviews__item">
+                                        <p class="info-reviews__title">Алексей</p>
+                                        <div class="info-reviews__rating">
+                                            <div class="rating">
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                            </div>
+                                            <p class="info-reviews__counter">5</p>
+                                        </div>
+                                        <p class="info-reviews__content">Норм. За неделю не сгнивают, остаются плотными и съедобными. Пахнут помидорами, вкус на 4ку.</p>
+                                        <div class="info-reviews__bottom">
+                                            <p class="info-reviews__date">20.03.2020</p>
+                                            <p class="info-reviews__favor">Отзыв полезен?</p>
+                                            <button class="info-reviews__like">5</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-reviews__item">
+                                        <p class="info-reviews__title">Юлия</p>
+                                        <div class="info-reviews__rating">
+                                            <div class="rating">
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                            </div>
+                                            <p class="info-reviews__counter">5</p>
+                                        </div>
+                                        <p class="info-reviews__content">Норм. За неделю не сгнивают, остаются плотными и съедобными. Пахнут помидорами, вкус на 4ку.</p>
+                                        <div class="info-reviews__bottom">
+                                            <p class="info-reviews__date">20.03.2020</p>
+                                            <p class="info-reviews__favor">Отзыв полезен?</p>
+                                            <button class="info-reviews__like">0</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-reviews__item">
+                                        <p class="info-reviews__title">Дана</p>
+                                        <div class="info-reviews__rating">
+                                            <div class="rating">
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                            </div>
+                                            <p class="info-reviews__counter">5</p>
+                                        </div>
+                                        <p class="info-reviews__content">Норм. За неделю не сгнивают, остаются плотными и съедобными. Пахнут помидорами, вкус на 4ку.</p>
+                                        <div class="info-reviews__bottom">
+                                            <p class="info-reviews__date">20.03.2020</p>
+                                            <p class="info-reviews__favor">Отзыв полезен?</p>
+                                            <button class="info-reviews__like">5</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-reviews__item">
+                                        <p class="info-reviews__title">Надежда</p>
+                                        <div class="info-reviews__rating">
+                                            <div class="rating">
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                            </div>
+                                            <p class="info-reviews__counter">5</p>
+                                        </div>
+                                        <p class="info-reviews__content">Норм. За неделю не сгнивают, остаются плотными и съедобными. Пахнут помидорами, вкус на 4ку.</p>
+                                        <div class="info-reviews__bottom">
+                                            <p class="info-reviews__date">20.03.2020</p>
+                                            <p class="info-reviews__favor">Отзыв полезен?</p>
+                                            <button class="info-reviews__like">7</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-reviews__item">
+                                        <p class="info-reviews__title">Пётр</p>
+                                        <div class="info-reviews__rating">
+                                            <div class="rating">
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                                <div class="rating__star"></div>
+                                            </div>
+                                            <p class="info-reviews__counter">5</p>
+                                        </div>
+                                        <p class="info-reviews__content">Норм. За неделю не сгнивают, остаются плотными и съедобными. Пахнут помидорами, вкус на 4ку.</p>
+                                        <div class="info-reviews__bottom">
+                                            <p class="info-reviews__date">20.03.2020</p>
+                                            <p class="info-reviews__favor">Отзыв полезен?</p>
+                                            <button class="info-reviews__like">5</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer desktop-only">
+	<div class="footer__container">
+		<div class="footer__columns">
+			<div class="footer__column">
+				<div class="footer__title">Для клиентов</div>
+				<a href="#" class="footer__link">Доставка и оплата</a>
+				<a href="#" class="footer__link">Доставка по подписке</a>
+				<a href="#" class="footer__link">Предложения от партнеров</a>
+				<a href="#" class="footer__link">Реферальная программа</a>
+				<a href="#" class="footer__link">Возврат продукции</a>
+				<a href="#" class="footer__link">Рецепты</a>
+				<a href="#" class="footer__link">Отзывы</a>
+			</div>
+			<div class="footer__column desktop-only">
+				<div class="footer__title">О компании</div>
+				<a href="#" class="footer__link">О нас</a>
+				<a href="#" class="footer__link">Новости</a>
+				<a href="#" class="footer__link">Вопросы и ответы</a>
+				<div class="footer__app">
+					<div class="footer__app-name">Greensmart</div>
+					<div class="footer__app-description">Делаем жизнь проще и легче</div>
+					<button class="footer__app-button">
+						<img src="img/footer-app-ico.png" alt="" class="footer__app-button-img">
+						<span class="footer__app-button-title">Загрузить в App Store</span>
+					</button>
+				</div>
+			</div>
+			<div class="footer__column desktop-only">
+				<div class="footer__title">Партнеры</div>
+				<a href="#" class="footer__link">Наши фермеры</a>
+				<a href="#" class="footer__link">Анкета поставщика</a>
+				<a href="#" class="footer__link">Обратная связь</a>
+				<div class="footer__payments desktop-only">
+					<img src="img/payments.svg" alt="VISA, MasterCard, Maestro, МИР">
+				</div>
+			</div>
+			<div class="footer__column">
+				<a href="tel:+74996536766" class="footer__phone">+7 499 653 67 66</a>
+				<a href="tel:+79778533815" class="footer__phone">+7 977 853 38 15</a>
+				<div class="footer__time">Ежедневно с 10 до 20</div>
+				<div class="footer__email desktop-only">feedback@greensmart.ru</div>
+				<div class="footer__socials">
+					<a href="#" class="footer__social footer__social-facebook"></a>
+					<a href="#" class="footer__social footer__social-instagram"></a>
+					<a href="#" class="footer__social footer__social-vkontakte"></a>
+					<a href="#" class="footer__social footer__social-twitter"></a>
+				</div>
+				<div class="footer__fun">Мы любим общаться с вами</div>
+				<div class="footer__payments mobile-only">
+					<img src="img/payments.svg" alt="VISA, MasterCard, Maestro, МИР">
+				</div>
+			</div>
+		</div>
+		<div class="footer__legals">
+			<div class="footer__copyright">© 2018-2020 – Greensmart – доставка свежих фермерских продуктов на дом</div>
+			<div class="footer__documents desktop-only">
+				<a href="#">Оферта</a>
+				<a href="#">Политика конфиденциальности</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<div class="footer-mobile mobile-only">
+	<div class="container">
+		<div class="footer-mobile__content">
+			<div class="footer-mobile__content-row1">
+				<a href="#" class="footer-mobile__link-app">
+				<img src="img/footer-app-ico.png" alt="">
+				<span>Загрузите в App Store</span>
+				</a>
+				<div class="footer-mobile__socials">
+					<a href="#" class="footer-mobile__social footer-mobile__social-facebook"></a>
+					<a href="#" class="footer-mobile__social footer-mobile__social-instagram"></a>
+					<a href="#" class="footer-mobile__social footer-mobile__social-vkontakte"></a>
+					<a href="#" class="footer-mobile__social footer-mobile__social-twitter"></a>
+				</div>
+			</div>
+			<div class="footer-mobile__content-row2">
+				<div class="footer-mobile__left-article"><span> Ежедневно с 10 до 20</span></div>
+				<div class="footer-mobile__right-numbers">
+					<div class="footer-mobile__first-number">
+						<img src="img/phone-footer.svg" alt="number-icon">
+						<span>+7 499 653 67 66</span>
+					</div>
+					<div class="footer-mobile__second-number">
+						<img src="img/phone-footer.svg" alt="number-icon">
+						<span>+7 977 853 38 15</span>
+					</div>
+				</div>
+			</div>
+			<div class="footer-mobile__content-row3">
+				<div class="footer-mobile__column-left">
+					<h6>Доставка и оплата</h6>
+					<h6>Возврат продукции</h6>
+					<h6>Доставка по подписке</h6>
+					<h6>Реферальная программа</h6>
+				</div>
+				<div class="footer-mobile__column-right">
+					<h6>Обратная связь</h6>
+					<h6>Рецепты</h6>
+					<h6>Отзывы</h6>
+					<h6>О нас</h6>
+				</div>
+			</div>
+			<div class="footer-mobile__content-row4">
+				<img src="img/mastercard.svg" alt="mastercard">
+				<img src="img/maestro.svg" alt="maestro">
+				<img src="img/visa.svg" alt="visa">
+				<img src="img/mir.svg" alt="mir">
+			</div>
+			<div class="footer-mobile__content-row5">
+				<p>© 2018-2020 Greensmart – доставка свежих фермерских продуктов на дом</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="auth-modal modal" id="auth-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body" aria-modal="true">
+			<button class="modal__close" data-micromodal-close></button>
+			<div class="modal__title">Войти на сайт</div>
+			<form class="modal__form">
+
+				<div class="modal__input modal__input--required">
+					<label for="auth-modal-email">E-mail/телефон</label>
+					<input type="text" id="auth-modal-email">
+				</div>
+
+				<div class="modal__input">
+					<label for="auth-modal-password">Пароль</label>
+					<button class="modal__show-password"></button>
+					<input type="password" id="auth-modal-password">
+					<div class="form__error">Пример ошибки заполнения поля</div>
+				</div>
+
+				<div class="auth-modal__other">
+					<div class="form__checkbox">
+						<input type="checkbox" id="auth-moda-remember" checked="">
+						<label for="auth-moda-remember">Запомнить меня</label>
+					</div>
+					<a href="#" class="auth-modal__forgot-password" data-micromodal-close data-micromodal-trigger="recovery-modal">Забыли пароль?</a>
+				</div>
+				<div class="text-center">
+					<button class="modal__submit" type="submit">Войти</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="sms-modal modal" id="auth-sms-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body sms-modal__body" aria-modal="true">
+			<button class="modal__close" data-micromodal-close></button>
+			<div class="modal__title">Войти на сайт</div>
+			<form class="modal__form">
+				<div class="modal__input modal__input--required">
+					<label for="sms-modal-phone">Tелефон</label>
+					<input type="text" id="sms-modal-phone">
+				</div>
+				<div class="modal__input sms-modal__token">
+					<input type="text">
+					<div class="form__error">Укажите код из смс</div>
+					<a href="#" class="sms-modal__resend">Выслать повторно</a>
+				</div>
+
+				<div class="sms-modal__send" style="display: none">
+					<div class="text-center">
+						<button class="modal__submit" type="submit">Получить код из СМС</button>
+					</div>
+				</div>
+				<div class="sms-modal__password-login">
+					<a href="#" data-micromodal-close data-micromodal-trigger="auth-modal">Войти с помощью пароля</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="register-modal modal" id="register-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body" aria-modal="true">
+			<button class="modal__close" data-micromodal-close></button>
+			<div class="modal__title register-modal__title">Регистрация в Greensmart</div>
+			<form class="modal__form">
+				<div class="modal__input modal__input--required">
+					<label for="register-modal-name">Имя</label>
+					<input type="text" id="register-modal-name">
+				</div>
+				<div class="modal__input modal__input--required">
+					<label for="register-modal-phone">Телефон</label>
+					<input type="text" id="register-modal-phone">
+				</div>
+				<div class="modal__input modal__input--required">
+					<label for="register-modal-email">E-mail</label>
+					<input type="text" id="register-modal-email">
+				</div>
+				<div class="modal__input">
+					<label for="register-modal-password">Пароль</label>
+					<input type="password" id="register-modal-password">
+					<button class="modal__show-password"></button>
+				</div>
+				<div class="auth-modal__other">
+					<div class="form__checkbox">
+						<input type="checkbox" id="register-modal-remember" checked="">
+						<label for="register-modal-remember">Запомнить меня</label>
+					</div>
+					<a href="#" class="register-modal__forgot-password">Забыли пароль?</a>
+				</div>
+				<button class="modal__submit" type="submit">Войти</button>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="recovery-modal modal" id="recovery-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body" aria-modal="true">
+			<button class="modal__close" data-micromodal-close></button>
+			<div class="modal__title recovery-modal__title">Восстановление пароля</div>
+			<form class="modal__form">
+				<div class="modal__input modal__input--required">
+					<label for="recovery-modal-email">E-mail/телефон</label>
+					<input type="text" id="recovery-modal-email">
+				</div>
+				<div class="text-center">
+					<button class="modal__submit recovery-modal__submit" type="submit">Восстановить пароль</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="map-modal modal" id="map-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body map-modal__body" aria-modal="true">
+			<button class="map-modal__close" data-micromodal-close></button>
+			<div class="map-modal__content">
+				<div class="map-modal__title">Укажите адрес доставки</div>
+
+				<form class="map-modal__form">
+
+					<div class="modal__input map-modal__input">
+						<label for="map-modal-address">Улица, дом/корпус</label>
+						<input type="text" id="map-modal-address">
+					</div>
+
+					<div class="modal__input map-modal__input map-modal__input-half">
+						<label for="map-modal-appartoments">Квартира</label>
+						<input type="text" id="map-modal-appartoments">
+					</div>
+
+					<button class="modal__submit map-modal__submit" type="submit">Применить</button>
+
+				</form>
+			</div>
+			<div class="map-modal__map"></div>
+		</div>
+	</div>
+</div>
+
+<script src="js/micromodal.min.js" async></script>
+<script src="js/tiny-slider.min.js" async></script>
+<script src="js/script.js" async></script>
+
+</body>
+</html>

@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- HTML and CSS by Anton Neverov | neverov12@gmail.com  -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+	<title>TITLE</title>
+	<link rel="stylesheet" href="css/tiny-slider.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+	<div class="container header__container">
+		<div class="menu-categories" style="display: none">
+			<button class="menu-categories__close"></button>
+			<div class="menu-categories__container">
+				<div class="menu-categories__location">
+					<i class="menu-categories__icon menu-categories__icon-location"></i> Москва и область
+				</div>
+				<div class="menu-categories__profile">
+					<button class="menu-categories__button">
+						Вход <i class="menu-categories__icon menu-categories__icon-arrow"></i>
+					</button>
+					<button class="menu-categories__button">
+						Регистрация <i class="menu-categories__icon menu-categories__icon-arrow"></i>
+					</button>
+				</div>
+				<!-- <button href="#" class="menu-categories__item menu-categories__back">
+					<i class="menu-categories__icon menu-categories__icon-back"></i> Назад
+				</button> -->
+				<div class="menu-categories__list">
+					<a href="#" class="menu-categories__item menu-categories__item-extendable">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/menu-icon-fire.svg)"></i> Скидки месяца
+					</a>
+					
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-logo.svg)"></i> Юрлицам и ИП
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-recipe.svg)"></i> Рецепты
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-subscribe.svg)"></i> Подписка на доставку
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-parent.svg)"></i> Забота о родителях
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-school.svg)"></i> Школа потребителя
+					</a>
+
+					<a href="#" class="menu-categories__item menu-categories__item-linked">
+						<span class="styled-link styled-link-dotted">Укажите адрес доставки</a>
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-grey">
+						Условия доставки
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-grey">
+						Партнёры
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-grey">
+						Помощь
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-grey">
+						Статус заказа
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="header__desktop">
+			<div class="header__header">
+				<div class="header__logo">
+					<a href="#">
+						<img src="img/logo.svg" alt="Greensmart">
+					</a>
+				</div>
+				<div class="header__location">
+					<a href="#">Москва</a>
+				</div>
+				<div class="header__delivery">
+					<div>Ближайшая доставка <span>19 марта</span></div>
+				</div>
+				<div class="header__menu">
+					<div class="header__menu-link">
+						<a href="#">Акции</a>
+					</div>
+					<div class="header__menu-link header__menu-link_crowned">
+						<a href="#">Greensmart Prime</a>
+					</div>
+					<div class="header__menu-link">
+						<a href="#">Юрлицам</a>
+					</div>
+				</div>
+			</div>
+			<div class="header__search">
+				<div class="header__catalog">
+					<a href="#">Каталог продуктов</a>
+				</div>
+				<form class="header__searchbar">
+					<input type="text" placeholder="Я хочу купить, например “Молоко”">
+					<button></button>
+				</form>
+				<div class="header__select-location">
+					<button>Укажите адрес доставки</button>
+				</div>
+				<div class="header__profile">
+					<button class="header__profile-button" data-micromodal-trigger="auth-sms-modal"></button>
+				</div>
+				<div class="header-cart">
+					<button class="header-cart__button">
+						<i class="header-cart__icon"></i>
+						<span class="header-cart__price js__cart-count">0,00 ₽</span>
+						<span class="header-cart__count js__cart-price">0</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="header__mobile">
+			<button class="header__burger"></button>
+			<a href="#" class="header__logo"><img src="img/mobile-logo.svg" alt="GreenSmart"></a>
+			<button class="header__search"></button>
+			<button class="header__profile" data-micromodal-trigger="auth-sms-modal"></button>
+			<button class="header__cart">
+				<span class="header-cart__count js__cart-price">3</span>
+			</button>
+		</div>
+		<div class="demo-cart demo-cart_active" style="display: none">
+			<div class="demo-cart__body">
+				<div class="demo-cart__item">
+					<button class="demo-cart__remove"></button>
+					<a href="#" class="demo-cart__image" style="background-image: url(/img/milk.jpg)"></a>
+					<a href="#" class="demo-cart__data">
+						<span class="demo-cart__title">Филе грудки утиное</span>
+						<span class="demo-cart__count">1 шт Х 795 ₽/0,93 л</span>
+					</a>
+				</div>
+				<div class="demo-cart__item">
+					<button class="demo-cart__remove"></button>
+					<a href="#" class="demo-cart__image" style="background-image: url(/img/milk.jpg)"></a>
+					<a href="#" class="demo-cart__data">
+						<span class="demo-cart__title">Филе грудки утиное</span>
+						<span class="demo-cart__count">1 шт Х 795 ₽/0,93 л</span>
+					</a>
+				</div>
+				<div class="demo-cart__item">
+					<button class="demo-cart__remove"></button>
+					<a href="#" class="demo-cart__image" style="background-image: url(/img/milk.jpg)"></a>
+					<a href="#" class="demo-cart__data">
+						<span class="demo-cart__title">Филе грудки утиное</span>
+						<span class="demo-cart__count">1 шт Х 795 ₽/0,93 л</span>
+					</a>
+				</div>
+				<div class="demo-cart__footer">
+					<a href="#" class="demo-cart__button">Перейти в корзину</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<section class="text">
+  <div class="container">
+    <div class="text-center">
+      <h1>Оферта</h1>
+    </div>
+
+    <p>
+      1. Основные понятия <br />
+      1.1. Посетитель Сайта — лицо, пришедшее на сайт greensmart.moscow без цели
+      размещения Заказа.
+    </p>
+
+    <p>
+      Пользователь — полностью дееспособное физическое лицо, принимающее условия
+      настоящего Соглашения, прошедшее процедуру регистрации на Сайте и желающее
+      разместить Заказы в Интернет-магазине.
+    </p>
+
+    <p>
+      Покупатель — Пользователь, разместивший Заказ в Интернет-магазине
+      greensmart.moscow.
+    </p>
+
+    <p>
+      Продавец — Общество с ограниченной ответственностью «Гринсмарт» (ОГРН
+      1207700158379, ИНН 7736327738, КПП 773601001, адрес: 119331, Город Москва,
+      ул.Марии Ульяновой, д. 16, помещение 7, Фактический: ород Москва, ул.Марии
+      Ульяновой, д. 16, помещение 7)
+    </p>
+
+    <p>
+      Интернет-магазин — Интернет-сайт, принадлежащий Продавцу, расположенный в
+      сети интернет по адресу greensmart.moscow. На нем представлены Товары,
+      предлагаемые Продавцом своим Покупателям для оформления Заказов, а также
+      условия оплаты и доставки этих Заказов Покупателям.
+    </p>
+
+    <p>Сайт — greensmart.moscow</p>
+
+    <p>
+      Товар — объект материального мира, не изъятый из гражданского оборота и
+      представленный к продаже на Сайте.
+    </p>
+
+    <p>
+      Заказ — должным образом оформленный запрос Покупателя на приобретение и
+      доставку по указанному Покупателем адресу Товаров, выбранных на Сайте.
+      Служба доставки – подразделение Продавца или третье лицо, имеющее с
+      Продавцом договор, оказывающие услугу по доставке Заказов Покупателям.
+    </p>
+
+    <p>
+      1.2. В настоящей Оферте могут быть использованы термины, не определенные в
+      п.1.1. В этом случае толкование такого термина производится в соответствии
+      с текстом настоящей Оферты. В случае отсутствия однозначного толкования
+      термина в тексте Оферты следует руководствоваться толкованием термина: в
+      первую очередь — на сайте Интернет-магазина, во вторую очередь —
+      сложившимся в общеупотребительной речи толкованиями данного термина.
+    </p>
+
+    <p>
+      2. Общие положения<br />
+      2.1. Сайт принадлежит и администрируется Продавцом.
+    </p>
+
+    <p>
+      2.2. Заказывая Товары через Интернет-магазин, Пользователь соглашается с
+      условиями продажи и доставки Товаров, изложенными ниже (далее — Условия).
+      В случае несогласия с настоящим Пользовательским соглашением (далее —
+      Соглашение / Публичная оферта), Пользователь обязан немедленно прекратить
+      использование сервиса и покинуть Сайт.
+    </p>
+
+    <p>
+      2.3. Настоящие Условия продажи товаров, а также информация о Товаре,
+      представленная на Сайте, являются публичной офертой в соответствии со
+      ст.435 и п.2 ст.437 Гражданского кодекса Российской Федерации. Соглашение
+      может быть изменено Продавцом в одностороннем порядке без уведомления
+      Пользователя и/или Покупателя. Новая редакция Соглашения вступает в силу
+      незамедлительно с момента ее опубликования на Сайте и распространяется на
+      отношения, возникающие после ее опубликования на Сайте.
+    </p>
+
+    <p>
+      2.4. Публичная оферта признается акцептованной Покупателем с момента
+      авторизации или регистрации на Сайте, а так же при нажатии на кнопку
+      «Оформить заказ» или с момента принятия от Покупателя Заказа без
+      авторизации на Сайте по телефонам 8-499-653-67-66 и 8-977-853-38-15, по
+      которым принимаются заказы. Оферта признается акцептованной Покупателем
+      так же с момента отправки Заказа на электронную почту Продавца
+      zakaz@greensmart.moscow или отправки заказа любым другим способом
+      продавцу.
+    </p>
+
+    <p>
+      2.5. Сообщая Продавцу свой e-mail и номер телефона,
+      Посетитель/Пользователь/Покупатель Сайта дает согласие на использование
+      указанных средств связи Продавцом, а также третьими лицами, привлекаемыми
+      им для целей выполнения обязательств перед
+      Посетителями/Пользователями/Покупателями Сайта, в целях осуществления
+      рассылок рекламного и информационного характера, содержащих информацию о
+      скидках, предстоящих и действующих акциях и других мероприятиях Продавца,
+      о передаче заказа в доставку, а также иную информацию, непосредственно
+      связанную с выполнением обязательств Покупателем в рамках настоящей
+      Публичной оферты.
+    </p>
+
+    <p>
+      3. Предмет соглашения<br />
+      3.1. Предметом настоящего Соглашения является предоставление возможности
+      Пользователю приобретать для личных, семейных, домашних и иных нужд, не
+      связанных с осуществлением предпринимательской деятельности, Товары,
+      представленные в каталоге Интернет-магазина.
+    </p>
+
+    <p>
+      3.2. Данное Соглашение распространяется на все виды Товаров и услуг,
+      представленных на Сайте, пока такие предложения с описанием присутствуют в
+      каталоге Интернет-магазина.
+    </p>
+
+    <p>
+      4. Регистрация на сайте<br />
+      4.1. Регистрация на Сайте осуществляется с помощью раздела «Регистрация»
+      или формы «Оформление заказа» и последующего заполнения этих форм.
+    </p>
+
+    <p>
+      4.2. Регистрация на Сайте не является обязательной для оформления Заказа.
+    </p>
+
+    <p>
+      4.3. Продавец не несет ответственности за точность и правильность
+      информации, предоставляемой Пользователем при регистрации.
+    </p>
+
+    <p>
+      4.4. Пользователь обязуется не сообщать третьим лицам логин и пароль,
+      указанные им при регистрации. В случае возникновения у Пользователя
+      подозрений относительно безопасности его логина и пароля или возможности
+      их несанкционированного использования третьими лицами, Пользователь
+      обязуется незамедлительно уведомить об этом Продавца, направив
+      соответствующее электронное письмо по адресу: feedback@greensmart.moscow.
+    </p>
+
+    <p>
+      5. Товар и порядок совершения покупки<br />
+      5.1. Продавец обеспечивает наличие на своем складе Товаров, представленных
+      на Сайте. Сопровождающие Товар фотографии являются простыми иллюстрациями
+      к нему и могут отличаться от фактического внешнего вида Товара.
+      Сопровождающие Товар описания и/или характеристики не претендуют на
+      исчерпывающую информативность и могут содержать опечатки. Для уточнения
+      информации по Товару Покупатель должен обратиться в Службу поддержки
+      клиентов.
+    </p>
+
+    <p>
+      5.2. В случае отсутствия заказанных Покупателем Товаров на складе
+      Продавца, последний вправе исключить указанный Товар из
+      Заказа/аннулировать Заказ Покупателя или заменить товар на аналогичный от
+      другого поставщика, уведомив об этом Покупателя путем направления
+      соответствующего электронного сообщения по адресу, указанному Покупателем
+      при регистрации или звонком/sms сообщением по указанному Покупателем
+      номеру телефона.
+    </p>
+
+    <p>
+      5.3. В случае аннуляции полностью оплаченного Заказа, стоимость
+      аннулированного Товара возвращается Продавцом Покупателю способом, которым
+      Товар был оплачен.
+    </p>
+
+    <p>
+      5.4. Оформление Заказа происходит в разделах на сайте greensmart.moscow, а
+      затем в окне «Оформить заказ».
+    </p>
+
+    <p>
+      5.5. Покупатель несет полную ответственность за предоставление неверных
+      сведений, повлекшее за собой невозможность надлежащего исполнения
+      Продавцом своих обязательств перед Покупателем.
+    </p>
+
+    <p>
+      5.6. После оформления Заказа на Сайте Покупателю предоставляется
+      информация о предполагаемой дате доставки путем направления электронного
+      сообщения по адресу, указанному Покупателем при регистрации, или по
+      телефону. Менеджер, обслуживающий данный Заказ, при необходимости может
+      уточнить детали Заказа, согласовать дату доставки, наличие заказанных
+      Товаров на складе Продавца и времени, необходимого для обработки и
+      доставки Заказа. Дата передачи Товара может быть изменена Продавцом в
+      одностороннем порядке в случае наличия объективных, по мнению Продавца,
+      причин. Ожидаемая дата передачи Заказа в Службу доставки соответствующего
+      Продавца сообщается Покупателю менеджером, обслуживающим Заказ, по
+      электронной почте или при контрольном звонке Покупателю. Дата передачи
+      Товара может быть изменена Продавцом в одностороннем порядке в случае
+      наличия объективных, по мнению Продавца, причин.
+    </p>
+
+    <p>
+      6. Доставка заказа<br />
+      6.1. Территория доставки Товаров, представленных на Сайте и реализуемых
+      Продавцом, ограничена пределами городов, указанных на Сайте в разделе
+      «Доставка и оплата» по адресу https://greensmart.moscow/dostavka.
+      Конкретные сроки доставки могут быть согласованы Покупателем с оператором
+      Call-центра при подтверждении заказа.
+    </p>
+
+    <p>
+      6.2. Задержки в доставке возможны ввиду непредвиденных обстоятельств,
+      произошедших не по вине Продавца.
+    </p>
+
+    <p>
+      6.3. При доставке Заказ вручается Покупателю либо третьему лицу,
+      указанному в Заказе в качестве получателя в разделе «Имя» (далее
+      Покупатель и третье лицо именуются «Получатель»). При невозможности
+      получения Заказа, оплаченного посредством наличного расчета, указанными
+      выше лицами, Заказ может быть вручен лицу, который может предоставить
+      сведения о Заказе (номер отправления и/или ФИО Получателя), а также
+      оплатить стоимость Заказа в полном объеме лицу, осуществляющему доставку
+      Заказа.
+    </p>
+
+    <p>
+      6.4. Во избежание случаев мошенничества, а также для выполнения взятых на
+      себя обязательств, указанных в пункте 5 настоящего Договора, при вручении
+      предоплаченного Заказа лицо, осуществляющее доставку Заказа, вправе
+      затребовать документ, удостоверяющий личность Получателя, а также указать
+      тип и номер предоставленного Получателем документа на квитанции к Заказу.
+    </p>
+
+    <p>
+      6.5. Продавец гарантирует конфиденциальность и защиту персональных данных
+      Получателя.
+    </p>
+
+    <p>
+      6.6. Риск случайной гибели или случайного повреждения Товара переходит к
+      Покупателю с момента передачи ему Заказа и проставления Получателем Заказа
+      подписи в документах, подтверждающих доставку Заказа. В случае недоставки
+      Заказа Продавец возмещает Покупателю стоимость предоплаченного Покупателем
+      Заказа и доставки в полном объеме после получения от Службы доставки
+      подтверждения утраты Заказа.
+    </p>
+
+    <p>
+      6.7. Стоимость доставки каждого Заказа рассчитывается индивидуально,
+      исходя из сведений о Продавце заказанного Товара, веса Товара, региона и
+      способа доставки, а также (в случае необходимости) формы оплаты, и
+      указывается на Сайте на последнем этапе оформления Заказа.
+    </p>
+
+    <p>
+      6.8. Обязанность Продавца передать товар Покупателю считается исполненной
+      в момент вручения курьером Товара Получателю в месте, указанном
+      Покупателем при оформлении Заказа в графе «Адрес доставки».
+    </p>
+
+    <p>
+      6.9. При получении Заказа Покупатель обязан осмотреть доставленный Товар в
+      присутствии курьера Продавца для проверки Товара на соответствие
+      заявленному количеству, ассортименту и комплектности Товара, а также
+      проверить срок годности доставленного Товара и целостность упаковки.
+    </p>
+
+    <p>
+      6.10. В случае отсутствия претензий к доставленному Товару Покупатель
+      должен принять и оплатить заказ. (в отсутствие 100%-ной предоплаты). При
+      необходимости, по требованию курьера или компании, поставить роспись в
+      «Бланке доставки заказов» либо ином аналогичном документе, предоставляемом
+      курьером.
+    </p>
+
+    <p>
+      6.11. Если Покупателем не были заявлены претензии в вышеуказанном порядке,
+      то Продавец считается полностью и надлежащим образом исполнившим свою
+      обязанность по передаче Товара. Принятый Покупателем заказ свидетельствует
+      о том, что претензий к Товару Покупателем не заявлено и Продавец полностью
+      и надлежащим образом выполнил свою обязанность по передаче Товара. Подпись
+      в доставочных документах свидетельствует о том, что претензий к Товару
+      Покупателем не заявлено и Продавец полностью и надлежащим образом выполнил
+      свою обязанность по передаче Товара.
+    </p>
+
+    <p>
+      6.12. Время нахождения курьеров, доставляющих товар, реализуемый
+      Продавцом, по адресу Покупателя ограничено 15 минутами.
+    </p>
+
+    <p>
+      6.13. Уточнить дату, время и при необходимости маршрут доставки, можно у
+      менеджера, который связывается с Покупателем для подтверждения Заказа.
+    </p>
+
+    <p>
+      6.14. Пользователь понимает и соглашается с тем, что: осуществление
+      доставки — отдельная услуга, не являющаяся неотъемлемой частью
+      приобретаемого Покупателем Товара, выполнение которой заканчивается в
+      момент получения Получателем Товара и осуществления платежа за него.
+      Продавец взимает отдельную плату за услугу доставки Товара (условия и
+      стоимость доставки размещены на сайте Продавца по адресу:
+      greensmart.moscowdostavka в разделе «Доставка и оплата»).
+    </p>
+
+    <p>
+      7. Оплата товара<br />
+      7.1. Цена товара, реализуемого в Интернет-магазине, указывается в рублях
+      Российской Федерации.
+    </p>
+
+    <p>
+      7.2. Цена Товара указывается на Сайте. В случае неверного указания цены
+      заказанного Покупателем Товара, Продавец информирует об этом Покупателя
+      для подтверждения Заказа по исправленной цене либо аннулирования Заказа.
+      При невозможности связаться с Покупателем данный Заказ может быть
+      аннулированным. Если Заказ был оплачен, то при аннулировании Продавец
+      возвращает Покупателю оплаченную за Заказ сумму тем же способом, которым
+      она была уплачена.
+    </p>
+
+    <p>
+      7.3. Цена Товара на Сайте может быть изменена Продавцом в одностороннем
+      порядке. При этом цена на заказанный Покупателем Товар изменению не
+      подлежит.
+    </p>
+
+    <p>7.4. Способы оплаты Товара.</p>
+
+    <p>
+      7.4.1. Товар может быть оплачен Покупателем следующим способом: —
+      наличными денежными средствами при получении Заказа, — безналичным
+      расчетом (банковские карты) при оформлении Покупателем Заказа на Сайте, —
+      с депозита (при заблаговременном его пополнении через банковскую карту).
+    </p>
+
+    <p>
+      7.4.2. Особенности оплаты Товара с помощью банковских карт: В соответствии
+      с положением ЦБ РФ «Об эмиссии банковских карт и об операциях, совершаемых
+      с использованием платежных карт» от 24.12.2004 №266-П операции по
+      банковским картам совершаются держателем карты либо уполномоченным им
+      лицом. Авторизация операций по банковским картам осуществляется банком.
+      Если у банка есть основания полагать, что операция носит мошеннический
+      характер, то банк вправе отказать в осуществлении данной операции.
+      Мошеннические операции с банковскими картами попадают под действие статьи
+      159 УК РФ. Во избежание случаев различного рода неправомерного
+      использования банковских карт при оплате все Заказы, оформленные на Сайте
+      и предоплаченные банковской картой, проверяются Продавцом. В целях
+      проверки личности владельца и его правомочности на использование карты
+      Продавец вправе потребовать от Покупателя, оформившего такой заказ,
+      предъявления документа, удостоверяющего личность.
+    </p>
+
+    <p>
+      7.5. Продавец вправе предоставлять скидки на Товары и устанавливать
+      программу бонусов. Виды скидок, бонусов, порядок и условия начисления
+      определяются Продавцом самостоятельно и указаны на Сайте. Бонусы и скидки
+      могут быть изменены Продавцом в одностороннем порядке.
+    </p>
+
+    <p>
+      7.6. Заказ считается неукомплектованным, если Покупатель сообщил об
+      изменении решения о покупке до момента начала сборки заказа продавцом.
+      Если Покупатель сообщил Продавцу об этом после момента начала сборки
+      заказа Продавцом, то такой Заказ считается отклоненным.
+    </p>
+
+    <p>
+      8. Возврат товара и денежных средств<br />
+      8.1. Претензии по товару ненадлежащего качества.
+    </p>
+
+    <p>
+      8.1.1. Под товаром ненадлежащего качества подразумевается товар с
+      нарушенной упаковкой, с вышедшим сроком годности, а также товар, который
+      имеет характерный запах или вкус, позволяющие характеризовать его как
+      непригодный к употреблению.
+    </p>
+
+    <p>
+      8.1.2. При доставке товара Покупатель, по требованию курьра или компании,
+      ставит свою подпись в квитанции о доставке, в графе: «Заказ принял,
+      комплектность полная, услуги по доставке оказаны, претензий к количеству,
+      внешнему виду товара и срокам годности не имею. С условиями возврата
+      товара ознакомлен».
+    </p>
+
+    <p>
+      8.1.3. В случае наличия претензий к доставленному Товару (недовложение,
+      вложение Товара отличного от указанного в Заказе, брак, иные претензии),
+      по указанию Покупателя курьером Продавца составляется Акт о выявленных
+      несоответствиях.
+    </p>
+
+    <p>
+      8.1.4. После получения заказа претензии к внешним дефектам товара, его
+      количеству, комплектности и товарному виду не принимаются.
+    </p>
+
+    <p>
+      8.1.5. Если Покупателю был передан товар ненадлежащего качества, и оно не
+      было заранее оговорено продавцом, он вправе воспользоваться положениями
+      ст. 18 Закона о защите прав потребителей. Покупатель вправе потребовать
+      замены товара, отказаться от исполнения договора купли-продажи, возвратить
+      товар ненадлежащего качества и потребовать возврата уплаченной за товар
+      денежной суммы.
+    </p>
+
+    <p>8.2. Порядок предъявления претензий по качеству и возврат товара</p>
+
+    <p>
+      8.2.1. Для возврата товара, а также в случае предъявления претензий к
+      качеству товара необходимо написать на почту Продавца
+      feedback@greensmart.moscow или позвонить по телефонам 8-499-653-67-66
+      (8-977-853-38-15) с целью урегулирования ситуации.
+    </p>
+
+    <p>
+      8.3. Возврат денежных средств осуществляется посредством возврата
+      стоимости оплаченного Товара на банковскую карту или тем способом, которым
+      Покупатель оплатил Заказ.
+    </p>
+
+    <p>
+      9. Ответственность<br />
+      9.1. В случае форс-мажорных обстоятельств, стороны освобождаются от
+      исполнения настоящего договора.
+    </p>
+
+    <p>
+      9.2. Продавец не несет ответственности, не может выступать в качестве
+      ответчика в суде и не возмещает убытки, возникшие у Покупателя из-за
+      действия или бездействия третьих лиц.
+    </p>
+
+    <p>
+      9.3. Продавец не несет ответственности в случае неправильного выбора
+      Покупателем характеристик или модификации товара, являющегося предметом
+      договора купли-продажи.
+    </p>
+
+    <p>
+      9.4. Продавец не несет ответственности за ущерб, причиненный Покупателю
+      вследствие ненадлежащего использования Товаров, приобретенных в
+      Интернет-магазине.
+    </p>
+
+    <p>
+      9.5. Стороны прилагают максимальные усилия с целью устранения возникающих
+      разногласий путем переговоров.
+    </p>
+
+    <p>
+      10. Срок действия Публичной оферты<br />
+      10.1. Настоящая Публичная оферта вступает в силу с момента ее акцепта
+      Посетителем Сайта/Покупателем, и действует до момента отзыва акцепта
+      Публичной оферты.
+    </p>
+
+    <p>
+      11. Дополнительные условия<br />
+      11.1. Продавец вправе переуступать либо каким-либо иным способом
+      передавать свои права и обязанности, вытекающие из его отношений с
+      Покупателем, третьим лицам.
+    </p>
+
+    <p>
+      11.2. Интернет-магазин и предоставляемые сервисы могут быть временно
+      частично или полностью недоступны по причине проведения профилактических
+      или иных работ или по любым другим причинам технического характера.
+      Техническая служба Продавца имеет право периодически проводить необходимые
+      профилактические или иные работы с предварительным уведомлением
+      Покупателей или без такового.
+    </p>
+
+    <p>
+      11.3. К отношениям между Пользователем/Покупателем и Продавцом применяются
+      положения Российского законодательства.
+    </p>
+
+    <p>
+      11.4. Признание судом недействительности какого-либо положения настоящего
+      Соглашения не влечет за собой недействительность остальных положений.
+    </p>
+  </div>
+</section>
+
+<footer class="footer desktop-only">
+	<div class="footer__container">
+		<div class="footer__columns">
+			<div class="footer__column">
+				<div class="footer__title">Для клиентов</div>
+				<a href="#" class="footer__link">Доставка и оплата</a>
+				<a href="#" class="footer__link">Доставка по подписке</a>
+				<a href="#" class="footer__link">Предложения от партнеров</a>
+				<a href="#" class="footer__link">Реферальная программа</a>
+				<a href="#" class="footer__link">Возврат продукции</a>
+				<a href="#" class="footer__link">Рецепты</a>
+				<a href="#" class="footer__link">Отзывы</a>
+			</div>
+			<div class="footer__column desktop-only">
+				<div class="footer__title">О компании</div>
+				<a href="#" class="footer__link">О нас</a>
+				<a href="#" class="footer__link">Новости</a>
+				<a href="#" class="footer__link">Вопросы и ответы</a>
+				<div class="footer__app">
+					<div class="footer__app-name">Greensmart</div>
+					<div class="footer__app-description">Делаем жизнь проще и легче</div>
+					<button class="footer__app-button">
+						<img src="img/footer-app-ico.png" alt="" class="footer__app-button-img">
+						<span class="footer__app-button-title">Загрузить в App Store</span>
+					</button>
+				</div>
+			</div>
+			<div class="footer__column desktop-only">
+				<div class="footer__title">Партнеры</div>
+				<a href="#" class="footer__link">Наши фермеры</a>
+				<a href="#" class="footer__link">Анкета поставщика</a>
+				<a href="#" class="footer__link">Обратная связь</a>
+				<div class="footer__payments desktop-only">
+					<img src="img/payments.svg" alt="VISA, MasterCard, Maestro, МИР">
+				</div>
+			</div>
+			<div class="footer__column">
+				<a href="tel:+74996536766" class="footer__phone">+7 499 653 67 66</a>
+				<a href="tel:+79778533815" class="footer__phone">+7 977 853 38 15</a>
+				<div class="footer__time">Ежедневно с 10 до 20</div>
+				<div class="footer__email desktop-only">feedback@greensmart.ru</div>
+				<div class="footer__socials">
+					<a href="#" class="footer__social footer__social-facebook"></a>
+					<a href="#" class="footer__social footer__social-instagram"></a>
+					<a href="#" class="footer__social footer__social-vkontakte"></a>
+					<a href="#" class="footer__social footer__social-twitter"></a>
+				</div>
+				<div class="footer__fun">Мы любим общаться с вами</div>
+				<div class="footer__payments mobile-only">
+					<img src="img/payments.svg" alt="VISA, MasterCard, Maestro, МИР">
+				</div>
+			</div>
+		</div>
+		<div class="footer__legals">
+			<div class="footer__copyright">© 2018-2020 – Greensmart – доставка свежих фермерских продуктов на дом</div>
+			<div class="footer__documents desktop-only">
+				<a href="#">Оферта</a>
+				<a href="#">Политика конфиденциальности</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<div class="footer-mobile mobile-only">
+	<div class="container">
+		<div class="footer-mobile__content">
+			<div class="footer-mobile__content-row1">
+				<a href="#" class="footer-mobile__link-app">
+				<img src="img/footer-app-ico.png" alt="">
+				<span>Загрузите в App Store</span>
+				</a>
+				<div class="footer-mobile__socials">
+					<a href="#" class="footer-mobile__social footer-mobile__social-facebook"></a>
+					<a href="#" class="footer-mobile__social footer-mobile__social-instagram"></a>
+					<a href="#" class="footer-mobile__social footer-mobile__social-vkontakte"></a>
+					<a href="#" class="footer-mobile__social footer-mobile__social-twitter"></a>
+				</div>
+			</div>
+			<div class="footer-mobile__content-row2">
+				<div class="footer-mobile__left-article"><span> Ежедневно с 10 до 20</span></div>
+				<div class="footer-mobile__right-numbers">
+					<div class="footer-mobile__first-number">
+						<img src="img/phone-footer.svg" alt="number-icon">
+						<span>+7 499 653 67 66</span>
+					</div>
+					<div class="footer-mobile__second-number">
+						<img src="img/phone-footer.svg" alt="number-icon">
+						<span>+7 977 853 38 15</span>
+					</div>
+				</div>
+			</div>
+			<div class="footer-mobile__content-row3">
+				<div class="footer-mobile__column-left">
+					<h6>Доставка и оплата</h6>
+					<h6>Возврат продукции</h6>
+					<h6>Доставка по подписке</h6>
+					<h6>Реферальная программа</h6>
+				</div>
+				<div class="footer-mobile__column-right">
+					<h6>Обратная связь</h6>
+					<h6>Рецепты</h6>
+					<h6>Отзывы</h6>
+					<h6>О нас</h6>
+				</div>
+			</div>
+			<div class="footer-mobile__content-row4">
+				<img src="img/mastercard.svg" alt="mastercard">
+				<img src="img/maestro.svg" alt="maestro">
+				<img src="img/visa.svg" alt="visa">
+				<img src="img/mir.svg" alt="mir">
+			</div>
+			<div class="footer-mobile__content-row5">
+				<p>© 2018-2020 Greensmart – доставка свежих фермерских продуктов на дом</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="auth-modal modal" id="auth-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body" aria-modal="true">
+			<button class="modal__close" data-micromodal-close></button>
+			<div class="modal__title">Войти на сайт</div>
+			<form class="modal__form">
+
+				<div class="modal__input modal__input--required">
+					<label for="auth-modal-email">E-mail/телефон</label>
+					<input type="text" id="auth-modal-email">
+				</div>
+
+				<div class="modal__input">
+					<label for="auth-modal-password">Пароль</label>
+					<button class="modal__show-password"></button>
+					<input type="password" id="auth-modal-password">
+					<div class="form__error">Пример ошибки заполнения поля</div>
+				</div>
+
+				<div class="auth-modal__other">
+					<div class="form__checkbox">
+						<input type="checkbox" id="auth-moda-remember" checked="">
+						<label for="auth-moda-remember">Запомнить меня</label>
+					</div>
+					<a href="#" class="auth-modal__forgot-password" data-micromodal-close data-micromodal-trigger="recovery-modal">Забыли пароль?</a>
+				</div>
+				<div class="text-center">
+					<button class="modal__submit" type="submit">Войти</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="sms-modal modal" id="auth-sms-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body sms-modal__body" aria-modal="true">
+			<button class="modal__close" data-micromodal-close></button>
+			<div class="modal__title">Войти на сайт</div>
+			<form class="modal__form">
+				<div class="modal__input modal__input--required">
+					<label for="sms-modal-phone">Tелефон</label>
+					<input type="text" id="sms-modal-phone">
+				</div>
+				<div class="modal__input sms-modal__token">
+					<input type="text">
+					<div class="form__error">Укажите код из смс</div>
+					<a href="#" class="sms-modal__resend">Выслать повторно</a>
+				</div>
+
+				<div class="sms-modal__send" style="display: none">
+					<div class="text-center">
+						<button class="modal__submit" type="submit">Получить код из СМС</button>
+					</div>
+				</div>
+				<div class="sms-modal__password-login">
+					<a href="#" data-micromodal-close data-micromodal-trigger="auth-modal">Войти с помощью пароля</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="register-modal modal" id="register-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body" aria-modal="true">
+			<button class="modal__close" data-micromodal-close></button>
+			<div class="modal__title register-modal__title">Регистрация в Greensmart</div>
+			<form class="modal__form">
+				<div class="modal__input modal__input--required">
+					<label for="register-modal-name">Имя</label>
+					<input type="text" id="register-modal-name">
+				</div>
+				<div class="modal__input modal__input--required">
+					<label for="register-modal-phone">Телефон</label>
+					<input type="text" id="register-modal-phone">
+				</div>
+				<div class="modal__input modal__input--required">
+					<label for="register-modal-email">E-mail</label>
+					<input type="text" id="register-modal-email">
+				</div>
+				<div class="modal__input">
+					<label for="register-modal-password">Пароль</label>
+					<input type="password" id="register-modal-password">
+					<button class="modal__show-password"></button>
+				</div>
+				<div class="auth-modal__other">
+					<div class="form__checkbox">
+						<input type="checkbox" id="register-modal-remember" checked="">
+						<label for="register-modal-remember">Запомнить меня</label>
+					</div>
+					<a href="#" class="register-modal__forgot-password">Забыли пароль?</a>
+				</div>
+				<button class="modal__submit" type="submit">Войти</button>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="recovery-modal modal" id="recovery-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body" aria-modal="true">
+			<button class="modal__close" data-micromodal-close></button>
+			<div class="modal__title recovery-modal__title">Восстановление пароля</div>
+			<form class="modal__form">
+				<div class="modal__input modal__input--required">
+					<label for="recovery-modal-email">E-mail/телефон</label>
+					<input type="text" id="recovery-modal-email">
+				</div>
+				<div class="text-center">
+					<button class="modal__submit recovery-modal__submit" type="submit">Восстановить пароль</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="map-modal modal" id="map-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body map-modal__body" aria-modal="true">
+			<button class="map-modal__close" data-micromodal-close></button>
+			<div class="map-modal__content">
+				<div class="map-modal__title">Укажите адрес доставки</div>
+
+				<form class="map-modal__form">
+
+					<div class="modal__input map-modal__input">
+						<label for="map-modal-address">Улица, дом/корпус</label>
+						<input type="text" id="map-modal-address">
+					</div>
+
+					<div class="modal__input map-modal__input map-modal__input-half">
+						<label for="map-modal-appartoments">Квартира</label>
+						<input type="text" id="map-modal-appartoments">
+					</div>
+
+					<button class="modal__submit map-modal__submit" type="submit">Применить</button>
+
+				</form>
+			</div>
+			<div class="map-modal__map"></div>
+		</div>
+	</div>
+</div>
+
+<script src="js/micromodal.min.js" async></script>
+<script src="js/tiny-slider.min.js" async></script>
+<script src="js/script.js" async></script>
+
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- HTML and CSS by Anton Neverov | neverov12@gmail.com  -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+	<title>TITLE</title>
+	<link rel="stylesheet" href="css/tiny-slider.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+	<div class="container header__container">
+		<div class="menu-categories" style="display: none">
+			<button class="menu-categories__close"></button>
+			<div class="menu-categories__container">
+				<div class="menu-categories__location">
+					<i class="menu-categories__icon menu-categories__icon-location"></i> Москва и область
+				</div>
+				<div class="menu-categories__profile">
+					<button class="menu-categories__button">
+						Вход <i class="menu-categories__icon menu-categories__icon-arrow"></i>
+					</button>
+					<button class="menu-categories__button">
+						Регистрация <i class="menu-categories__icon menu-categories__icon-arrow"></i>
+					</button>
+				</div>
+				<!-- <button href="#" class="menu-categories__item menu-categories__back">
+					<i class="menu-categories__icon menu-categories__icon-back"></i> Назад
+				</button> -->
+				<div class="menu-categories__list">
+					<a href="#" class="menu-categories__item menu-categories__item-extendable">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/menu-icon-fire.svg)"></i> Скидки месяца
+					</a>
+					
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-logo.svg)"></i> Юрлицам и ИП
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-recipe.svg)"></i> Рецепты
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-subscribe.svg)"></i> Подписка на доставку
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-parent.svg)"></i> Забота о родителях
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-school.svg)"></i> Школа потребителя
+					</a>
+
+					<a href="#" class="menu-categories__item menu-categories__item-linked">
+						<span class="styled-link styled-link-dotted">Укажите адрес доставки</a>
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-grey">
+						Условия доставки
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-grey">
+						Партнёры
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-grey">
+						Помощь
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-grey">
+						Статус заказа
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="header__desktop">
+			<div class="header__header">
+				<div class="header__logo">
+					<a href="#">
+						<img src="img/logo.svg" alt="Greensmart">
+					</a>
+				</div>
+				<div class="header__location">
+					<a href="#">Москва</a>
+				</div>
+				<div class="header__delivery">
+					<div>Ближайшая доставка <span>19 марта</span></div>
+				</div>
+				<div class="header__menu">
+					<div class="header__menu-link">
+						<a href="#">Акции</a>
+					</div>
+					<div class="header__menu-link header__menu-link_crowned">
+						<a href="#">Greensmart Prime</a>
+					</div>
+					<div class="header__menu-link">
+						<a href="#">Юрлицам</a>
+					</div>
+				</div>
+			</div>
+			<div class="header__search">
+				<div class="header__catalog">
+					<a href="#">Каталог продуктов</a>
+				</div>
+				<form class="header__searchbar">
+					<input type="text" placeholder="Я хочу купить, например “Молоко”">
+					<button></button>
+				</form>
+				<div class="header__select-location">
+					<button>Укажите адрес доставки</button>
+				</div>
+				<div class="header__profile">
+					<button class="header__profile-button" data-micromodal-trigger="auth-sms-modal"></button>
+				</div>
+				<div class="header-cart">
+					<button class="header-cart__button">
+						<i class="header-cart__icon"></i>
+						<span class="header-cart__price js__cart-count">0,00 ₽</span>
+						<span class="header-cart__count js__cart-price">0</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="header__mobile">
+			<button class="header__burger"></button>
+			<a href="#" class="header__logo"><img src="img/mobile-logo.svg" alt="GreenSmart"></a>
+			<button class="header__search"></button>
+			<button class="header__profile" data-micromodal-trigger="auth-sms-modal"></button>
+			<button class="header__cart">
+				<span class="header-cart__count js__cart-price">3</span>
+			</button>
+		</div>
+		<div class="demo-cart demo-cart_active" style="display: none">
+			<div class="demo-cart__body">
+				<div class="demo-cart__item">
+					<button class="demo-cart__remove"></button>
+					<a href="#" class="demo-cart__image" style="background-image: url(/img/milk.jpg)"></a>
+					<a href="#" class="demo-cart__data">
+						<span class="demo-cart__title">Филе грудки утиное</span>
+						<span class="demo-cart__count">1 шт Х 795 ₽/0,93 л</span>
+					</a>
+				</div>
+				<div class="demo-cart__item">
+					<button class="demo-cart__remove"></button>
+					<a href="#" class="demo-cart__image" style="background-image: url(/img/milk.jpg)"></a>
+					<a href="#" class="demo-cart__data">
+						<span class="demo-cart__title">Филе грудки утиное</span>
+						<span class="demo-cart__count">1 шт Х 795 ₽/0,93 л</span>
+					</a>
+				</div>
+				<div class="demo-cart__item">
+					<button class="demo-cart__remove"></button>
+					<a href="#" class="demo-cart__image" style="background-image: url(/img/milk.jpg)"></a>
+					<a href="#" class="demo-cart__data">
+						<span class="demo-cart__title">Филе грудки утиное</span>
+						<span class="demo-cart__count">1 шт Х 795 ₽/0,93 л</span>
+					</a>
+				</div>
+				<div class="demo-cart__footer">
+					<a href="#" class="demo-cart__button">Перейти в корзину</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<section class="text">
+  <div class="container">
+    <div class="text-center">
+      <h1>Политика конфиденциальности</h1>
+    </div>
+
+    <p>
+      1. Общие положения<br />
+      Настоящая политика обработки персональных данных составлена в соответствии
+      с требованиями Федерального закона от 27.07.2006. №152-ФЗ «О персональных
+      данных» и определяет порядок обработки персональных данных и меры по
+      обеспечению безопасности персональных данных Гринсмарт (далее –
+      Оператор).<br />
+      Оператор ставит своей важнейшей целью и условием осуществления своей
+      деятельности соблюдение прав и свобод человека и гражданина при обработке
+      его персональных данных, в том числе защиты прав на неприкосновенность
+      частной жизни, личную и семейную тайну.<br />
+      Настоящая политика Оператора в отношении обработки персональных данных
+      (далее – Политика) применяется ко всей информации, которую Оператор может
+      получить о посетителях веб-сайта https://greensmart.moscow.
+    </p>
+
+    <p>2. Основные понятия, используемые в Политике</p>
+
+    <p>
+      Автоматизированная обработка персональных данных – обработка персональных
+      данных с помощью средств вычислительной техники;
+    </p>
+
+    <p>
+      Блокирование персональных данных – временное прекращение обработки
+      персональных данных (за исключением случаев, если обработка необходима для
+      уточнения персональных данных);
+    </p>
+
+    <p>
+      Веб-сайт – совокупность графических и информационных материалов, а также
+      программ для ЭВМ и баз данных, обеспечивающих их доступность в сети
+      интернет по сетевому адресу https://greensmart.moscow;
+    </p>
+
+    <p>
+      Информационная система персональных данных — совокупность содержащихся в
+      базах данных персональных данных, и обеспечивающих их обработку
+      информационных технологий и технических средств;
+    </p>
+
+    <p>
+      Обезличивание персональных данных — действия, в результате которых
+      невозможно определить без использования дополнительной информации
+      принадлежность персональных данных конкретному Пользователю или иному
+      субъекту персональных данных;
+    </p>
+
+    <p>
+      Обработка персональных данных – любое действие (операция) или совокупность
+      действий (операций), совершаемых с использованием средств автоматизации
+      или без использования таких средств с персональными данными, включая сбор,
+      запись, систематизацию, накопление, хранение, уточнение (обновление,
+      изменение), извлечение, использование, передачу (распространение,
+      предоставление, доступ), обезличивание, блокирование, удаление,
+      уничтожение персональных данных;
+    </p>
+
+    <p>
+      Оператор – государственный орган, муниципальный орган, юридическое или
+      физическое лицо, самостоятельно или совместно с другими лицами
+      организующие и (или) осуществляющие обработку персональных данных, а также
+      определяющие цели обработки персональных данных, состав персональных
+      данных, подлежащих обработке, действия (операции), совершаемые с
+      персональными данными;
+    </p>
+
+    <p>
+      Персональные данные – любая информация, относящаяся прямо или косвенно к
+      определенному или определяемому Пользователю веб-сайта
+      https://greensmart.moscow;
+    </p>
+
+    <p>Пользователь – любой посетитель веб-сайта https:/greensmart.moscow;</p>
+
+    <p>
+      Предоставление персональных данных – действия, направленные на раскрытие
+      персональных данных определенному лицу или определенному кругу лиц;
+    </p>
+
+    <p>
+      Распространение персональных данных – любые действия, направленные на
+      раскрытие персональных данных неопределенному кругу лиц (передача
+      персональных данных) или на ознакомление с персональными данными
+      неограниченного круга лиц, в том числе обнародование персональных данных в
+      средствах массовой информации, размещение в
+      информационно-телекоммуникационных сетях или предоставление доступа к
+      персональным данным каким-либо иным способом;
+    </p>
+
+    <p>
+      Трансграничная передача персональных данных – передача персональных данных
+      на территорию иностранного государства органу власти иностранного
+      государства, иностранному физическому или иностранному юридическому лицу;
+    </p>
+
+    <p>
+      Уничтожение персональных данных – любые действия, в результате которых
+      персональные данные уничтожаются безвозвратно с невозможностью дальнейшего
+      восстановления содержания персональных данных в информационной системе
+      персональных данных и (или) результате которых уничтожаются материальные
+      носители персональных данных.
+    </p>
+
+    <p>
+      3. Оператор может обрабатывать следующие персональные данные
+      Пользователя<br />
+      Фамилия, имя, отчество;<br />
+      Электронный адрес;<br />
+      Номера телефонов;<br />
+      Год, месяц, дата и место рождения;<br />
+      Фотографии;<br />
+      Адрес фактического места проживания и регистрации по месту жительства и
+      (или) по месту пребывания;<br />
+      Также на сайте происходит сбор и обработка обезличенных данных о
+      посетителях (в т.ч. файлов «cookie») с помощью сервисов
+      интернет-статистики (Яндекс Метрика, Гугл Аналитика и других).<br />
+      Вышеперечисленные данные далее по тексту Политики объединены общим
+      понятием Персональные данные.
+    </p>
+
+    <p>
+      4. Цели обработки персональных данных<br />
+      Цель обработки персональных данных Пользователя — выполнения Продавцом
+      обязательств перед Посетителем Сайта/Пользователем/Покупателем в рамках
+      настоящей Публичной оферты, продвижения Продавцом товаров и услуг,
+      проведения электронных и sms опросов, контроля результатов маркетинговых
+      акций, клиентской поддержки, организации доставки товара Покупателям,
+      проведение розыгрышей призов среди Посетителей Сайта/Пользователей/
+      Покупателей, контроля удовлетворенности Посетителя
+      Сайта/Пользователя/Покупателя, а также качества услуг, оказываемых
+      Продавцом. Также Оператор имеет право направлять Пользователю уведомления
+      о новых продуктах и услугах, специальных предложениях и различных
+      событиях. Пользователь всегда может отказаться от получения информационных
+      сообщений, направив Оператору письмо на адрес электронной почты
+      feedback@greensmart.moscow с пометкой «Отказ от уведомлениях о новых
+      продуктах и услугах и специальных предложениях».<br />
+      Обезличенные данные Пользователей, собираемые с помощью сервисов
+      интернет-статистики, служат для сбора информации о действиях Пользователей
+      на сайте, улучшения качества сайта и его содержания.<br />
+      Продавец не несет ответственности за сведения, предоставленные
+      Пользователем/Покупателем на Сайте в общедоступной форме.<br />
+      Продавец вправе использовать технологию «cookies». «Cookies» не содержат
+      конфиденциальную информацию. Посетитель / Пользователь / Покупатель
+      настоящим дает согласие на сбор, анализ и использование cookies, в том
+      числе третьими лицами для целей формирования статистики и оптимизации
+      рекламных сообщений.
+    </p>
+
+    <p>
+      5. Правовые основания обработки персональных данных<br />
+      Оператор обрабатывает персональные данные Пользователя только в случае их
+      заполнения и/или отправки Пользователем самостоятельно через специальные
+      формы, расположенные на сайте https://greensmart.moscow. Заполняя
+      соответствующие формы и/или отправляя свои персональные данные Оператору,
+      Пользователь выражает свое согласие с данной Политикой.<br />
+      Оператор обрабатывает обезличенные данные о Пользователе в случае, если
+      это разрешено в настройках браузера Пользователя (включено сохранение
+      файлов «cookie» и использование технологии JavaScript).
+    </p>
+
+    <p>
+      6. Порядок сбора, хранения, передачи и других видов обработки персональных
+      данных<br />
+      Безопасность персональных данных, которые обрабатываются Оператором,
+      обеспечивается путем реализации правовых, организационных и технических
+      мер, необходимых для выполнения в полном объеме требований действующего
+      законодательства в области защиты персональных данных.<br />
+      Оператор обеспечивает сохранность персональных данных и принимает все
+      возможные меры, исключающие доступ к персональным данным неуполномоченных
+      лиц.<br />
+      Персональные данные Пользователя никогда, ни при каких условиях не будут
+      переданы третьим лицам, за исключением случаев, связанных с исполнением
+      действующего законодательства.<br />
+      В случае выявления неточностей в персональных данных, Пользователь может
+      актуализировать их самостоятельно, путем направления Оператору уведомление
+      на адрес электронной почты Оператора feedback@greensmart.moscow с пометкой
+      «Актуализация персональных данных».<br />
+      Срок обработки персональных данных является неограниченным. Пользователь
+      может в любой момент отозвать свое согласие на обработку персональных
+      данных, направив Оператору уведомление посредством электронной почты на
+      электронный адрес Оператора feedback@greensmart.moscow с пометкой «Отзыв
+      согласия на обработку персональных данных».
+    </p>
+
+    <p>
+      7. Трансграничная передача персональных данных<br />
+      Оператор до начала осуществления трансграничной передачи персональных
+      данных обязан убедиться в том, что иностранным государством, на территорию
+      которого предполагается осуществлять передачу персональных данных,
+      обеспечивается надежная защита прав субъектов персональных данных.<br />
+      Трансграничная передача персональных данных на территории иностранных
+      государств, не отвечающих вышеуказанным требованиям, может осуществляться
+      только в случае наличия согласия в письменной форме субъекта персональных
+      данных на трансграничную передачу его персональных данных и/или исполнения
+      договора, стороной которого является субъект персональных данных.
+    </p>
+
+    <p>
+      8. Заключительные положения<br />
+      Пользователь может получить любые разъяснения по интересующим вопросам,
+      касающимся обработки его персональных данных, обратившись к Оператору с
+      помощью электронной почты feedback@greensmart.moscow.
+    </p>
+
+    <p>
+      В данном документе будут отражены любые изменения политики обработки
+      персональных данных Оператором. Политика действует бессрочно до замены ее
+      новой версией. Актуальная версия Политики в свободном доступе расположена
+      в сети Интернет по адресу https://greensmart.moscow/policy.
+    </p>
+  </div>
+</section>
+
+<footer class="footer desktop-only">
+	<div class="footer__container">
+		<div class="footer__columns">
+			<div class="footer__column">
+				<div class="footer__title">Для клиентов</div>
+				<a href="#" class="footer__link">Доставка и оплата</a>
+				<a href="#" class="footer__link">Доставка по подписке</a>
+				<a href="#" class="footer__link">Предложения от партнеров</a>
+				<a href="#" class="footer__link">Реферальная программа</a>
+				<a href="#" class="footer__link">Возврат продукции</a>
+				<a href="#" class="footer__link">Рецепты</a>
+				<a href="#" class="footer__link">Отзывы</a>
+			</div>
+			<div class="footer__column desktop-only">
+				<div class="footer__title">О компании</div>
+				<a href="#" class="footer__link">О нас</a>
+				<a href="#" class="footer__link">Новости</a>
+				<a href="#" class="footer__link">Вопросы и ответы</a>
+				<div class="footer__app">
+					<div class="footer__app-name">Greensmart</div>
+					<div class="footer__app-description">Делаем жизнь проще и легче</div>
+					<button class="footer__app-button">
+						<img src="img/footer-app-ico.png" alt="" class="footer__app-button-img">
+						<span class="footer__app-button-title">Загрузить в App Store</span>
+					</button>
+				</div>
+			</div>
+			<div class="footer__column desktop-only">
+				<div class="footer__title">Партнеры</div>
+				<a href="#" class="footer__link">Наши фермеры</a>
+				<a href="#" class="footer__link">Анкета поставщика</a>
+				<a href="#" class="footer__link">Обратная связь</a>
+				<div class="footer__payments desktop-only">
+					<img src="img/payments.svg" alt="VISA, MasterCard, Maestro, МИР">
+				</div>
+			</div>
+			<div class="footer__column">
+				<a href="tel:+74996536766" class="footer__phone">+7 499 653 67 66</a>
+				<a href="tel:+79778533815" class="footer__phone">+7 977 853 38 15</a>
+				<div class="footer__time">Ежедневно с 10 до 20</div>
+				<div class="footer__email desktop-only">feedback@greensmart.ru</div>
+				<div class="footer__socials">
+					<a href="#" class="footer__social footer__social-facebook"></a>
+					<a href="#" class="footer__social footer__social-instagram"></a>
+					<a href="#" class="footer__social footer__social-vkontakte"></a>
+					<a href="#" class="footer__social footer__social-twitter"></a>
+				</div>
+				<div class="footer__fun">Мы любим общаться с вами</div>
+				<div class="footer__payments mobile-only">
+					<img src="img/payments.svg" alt="VISA, MasterCard, Maestro, МИР">
+				</div>
+			</div>
+		</div>
+		<div class="footer__legals">
+			<div class="footer__copyright">© 2018-2020 – Greensmart – доставка свежих фермерских продуктов на дом</div>
+			<div class="footer__documents desktop-only">
+				<a href="#">Оферта</a>
+				<a href="#">Политика конфиденциальности</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<div class="footer-mobile mobile-only">
+	<div class="container">
+		<div class="footer-mobile__content">
+			<div class="footer-mobile__content-row1">
+				<a href="#" class="footer-mobile__link-app">
+				<img src="img/footer-app-ico.png" alt="">
+				<span>Загрузите в App Store</span>
+				</a>
+				<div class="footer-mobile__socials">
+					<a href="#" class="footer-mobile__social footer-mobile__social-facebook"></a>
+					<a href="#" class="footer-mobile__social footer-mobile__social-instagram"></a>
+					<a href="#" class="footer-mobile__social footer-mobile__social-vkontakte"></a>
+					<a href="#" class="footer-mobile__social footer-mobile__social-twitter"></a>
+				</div>
+			</div>
+			<div class="footer-mobile__content-row2">
+				<div class="footer-mobile__left-article"><span> Ежедневно с 10 до 20</span></div>
+				<div class="footer-mobile__right-numbers">
+					<div class="footer-mobile__first-number">
+						<img src="img/phone-footer.svg" alt="number-icon">
+						<span>+7 499 653 67 66</span>
+					</div>
+					<div class="footer-mobile__second-number">
+						<img src="img/phone-footer.svg" alt="number-icon">
+						<span>+7 977 853 38 15</span>
+					</div>
+				</div>
+			</div>
+			<div class="footer-mobile__content-row3">
+				<div class="footer-mobile__column-left">
+					<h6>Доставка и оплата</h6>
+					<h6>Возврат продукции</h6>
+					<h6>Доставка по подписке</h6>
+					<h6>Реферальная программа</h6>
+				</div>
+				<div class="footer-mobile__column-right">
+					<h6>Обратная связь</h6>
+					<h6>Рецепты</h6>
+					<h6>Отзывы</h6>
+					<h6>О нас</h6>
+				</div>
+			</div>
+			<div class="footer-mobile__content-row4">
+				<img src="img/mastercard.svg" alt="mastercard">
+				<img src="img/maestro.svg" alt="maestro">
+				<img src="img/visa.svg" alt="visa">
+				<img src="img/mir.svg" alt="mir">
+			</div>
+			<div class="footer-mobile__content-row5">
+				<p>© 2018-2020 Greensmart – доставка свежих фермерских продуктов на дом</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="auth-modal modal" id="auth-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body" aria-modal="true">
+			<button class="modal__close" data-micromodal-close></button>
+			<div class="modal__title">Войти на сайт</div>
+			<form class="modal__form">
+
+				<div class="modal__input modal__input--required">
+					<label for="auth-modal-email">E-mail/телефон</label>
+					<input type="text" id="auth-modal-email">
+				</div>
+
+				<div class="modal__input">
+					<label for="auth-modal-password">Пароль</label>
+					<button class="modal__show-password"></button>
+					<input type="password" id="auth-modal-password">
+					<div class="form__error">Пример ошибки заполнения поля</div>
+				</div>
+
+				<div class="auth-modal__other">
+					<div class="form__checkbox">
+						<input type="checkbox" id="auth-moda-remember" checked="">
+						<label for="auth-moda-remember">Запомнить меня</label>
+					</div>
+					<a href="#" class="auth-modal__forgot-password" data-micromodal-close data-micromodal-trigger="recovery-modal">Забыли пароль?</a>
+				</div>
+				<div class="text-center">
+					<button class="modal__submit" type="submit">Войти</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="sms-modal modal" id="auth-sms-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body sms-modal__body" aria-modal="true">
+			<button class="modal__close" data-micromodal-close></button>
+			<div class="modal__title">Войти на сайт</div>
+			<form class="modal__form">
+				<div class="modal__input modal__input--required">
+					<label for="sms-modal-phone">Tелефон</label>
+					<input type="text" id="sms-modal-phone">
+				</div>
+				<div class="modal__input sms-modal__token">
+					<input type="text">
+					<div class="form__error">Укажите код из смс</div>
+					<a href="#" class="sms-modal__resend">Выслать повторно</a>
+				</div>
+
+				<div class="sms-modal__send" style="display: none">
+					<div class="text-center">
+						<button class="modal__submit" type="submit">Получить код из СМС</button>
+					</div>
+				</div>
+				<div class="sms-modal__password-login">
+					<a href="#" data-micromodal-close data-micromodal-trigger="auth-modal">Войти с помощью пароля</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="register-modal modal" id="register-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body" aria-modal="true">
+			<button class="modal__close" data-micromodal-close></button>
+			<div class="modal__title register-modal__title">Регистрация в Greensmart</div>
+			<form class="modal__form">
+				<div class="modal__input modal__input--required">
+					<label for="register-modal-name">Имя</label>
+					<input type="text" id="register-modal-name">
+				</div>
+				<div class="modal__input modal__input--required">
+					<label for="register-modal-phone">Телефон</label>
+					<input type="text" id="register-modal-phone">
+				</div>
+				<div class="modal__input modal__input--required">
+					<label for="register-modal-email">E-mail</label>
+					<input type="text" id="register-modal-email">
+				</div>
+				<div class="modal__input">
+					<label for="register-modal-password">Пароль</label>
+					<input type="password" id="register-modal-password">
+					<button class="modal__show-password"></button>
+				</div>
+				<div class="auth-modal__other">
+					<div class="form__checkbox">
+						<input type="checkbox" id="register-modal-remember" checked="">
+						<label for="register-modal-remember">Запомнить меня</label>
+					</div>
+					<a href="#" class="register-modal__forgot-password">Забыли пароль?</a>
+				</div>
+				<button class="modal__submit" type="submit">Войти</button>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="recovery-modal modal" id="recovery-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body" aria-modal="true">
+			<button class="modal__close" data-micromodal-close></button>
+			<div class="modal__title recovery-modal__title">Восстановление пароля</div>
+			<form class="modal__form">
+				<div class="modal__input modal__input--required">
+					<label for="recovery-modal-email">E-mail/телефон</label>
+					<input type="text" id="recovery-modal-email">
+				</div>
+				<div class="text-center">
+					<button class="modal__submit recovery-modal__submit" type="submit">Восстановить пароль</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="map-modal modal" id="map-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body map-modal__body" aria-modal="true">
+			<button class="map-modal__close" data-micromodal-close></button>
+			<div class="map-modal__content">
+				<div class="map-modal__title">Укажите адрес доставки</div>
+
+				<form class="map-modal__form">
+
+					<div class="modal__input map-modal__input">
+						<label for="map-modal-address">Улица, дом/корпус</label>
+						<input type="text" id="map-modal-address">
+					</div>
+
+					<div class="modal__input map-modal__input map-modal__input-half">
+						<label for="map-modal-appartoments">Квартира</label>
+						<input type="text" id="map-modal-appartoments">
+					</div>
+
+					<button class="modal__submit map-modal__submit" type="submit">Применить</button>
+
+				</form>
+			</div>
+			<div class="map-modal__map"></div>
+		</div>
+	</div>
+</div>
+
+<script src="js/micromodal.min.js" async></script>
+<script src="js/tiny-slider.min.js" async></script>
+<script src="js/script.js" async></script>
+
+</body>
+</html>

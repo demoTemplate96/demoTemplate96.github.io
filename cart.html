@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- HTML and CSS by Anton Neverov | neverov12@gmail.com  -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+	<title>TITLE</title>
+	<link rel="stylesheet" href="css/tiny-slider.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+	<div class="container header__container">
+		<div class="menu-categories" style="display: none">
+			<button class="menu-categories__close"></button>
+			<div class="menu-categories__container">
+				<div class="menu-categories__location">
+					<i class="menu-categories__icon menu-categories__icon-location"></i> Москва и область
+				</div>
+				<div class="menu-categories__profile">
+					<button class="menu-categories__button">
+						Вход <i class="menu-categories__icon menu-categories__icon-arrow"></i>
+					</button>
+					<button class="menu-categories__button">
+						Регистрация <i class="menu-categories__icon menu-categories__icon-arrow"></i>
+					</button>
+				</div>
+				<!-- <button href="#" class="menu-categories__item menu-categories__back">
+					<i class="menu-categories__icon menu-categories__icon-back"></i> Назад
+				</button> -->
+				<div class="menu-categories__list">
+					<a href="#" class="menu-categories__item menu-categories__item-extendable">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/menu-icon-fire.svg)"></i> Скидки месяца
+					</a>
+					
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-logo.svg)"></i> Юрлицам и ИП
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-recipe.svg)"></i> Рецепты
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-subscribe.svg)"></i> Подписка на доставку
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-parent.svg)"></i> Забота о родителях
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-highlighted">
+						<i class="menu-categories__icon menu-categories__icon-custom" style="background-image: url(img/icon-school.svg)"></i> Школа потребителя
+					</a>
+
+					<a href="#" class="menu-categories__item menu-categories__item-linked">
+						<span class="styled-link styled-link-dotted">Укажите адрес доставки</a>
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-grey">
+						Условия доставки
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-grey">
+						Партнёры
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-grey">
+						Помощь
+					</a>
+					<a href="#" class="menu-categories__item menu-categories__item-grey">
+						Статус заказа
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="header__desktop">
+			<div class="header__header">
+				<div class="header__logo">
+					<a href="#">
+						<img src="img/logo.svg" alt="Greensmart">
+					</a>
+				</div>
+				<div class="header__location">
+					<a href="#">Москва</a>
+				</div>
+				<div class="header__delivery">
+					<div>Ближайшая доставка <span>19 марта</span></div>
+				</div>
+				<div class="header__menu">
+					<div class="header__menu-link">
+						<a href="#">Акции</a>
+					</div>
+					<div class="header__menu-link header__menu-link_crowned">
+						<a href="#">Greensmart Prime</a>
+					</div>
+					<div class="header__menu-link">
+						<a href="#">Юрлицам</a>
+					</div>
+				</div>
+			</div>
+			<div class="header__search">
+				<div class="header__catalog">
+					<a href="#">Каталог продуктов</a>
+				</div>
+				<form class="header__searchbar">
+					<input type="text" placeholder="Я хочу купить, например “Молоко”">
+					<button></button>
+				</form>
+				<div class="header__select-location">
+					<button>Укажите адрес доставки</button>
+				</div>
+				<div class="header__profile">
+					<button class="header__profile-button" data-micromodal-trigger="auth-sms-modal"></button>
+				</div>
+				<div class="header-cart">
+					<button class="header-cart__button">
+						<i class="header-cart__icon"></i>
+						<span class="header-cart__price js__cart-count">0,00 ₽</span>
+						<span class="header-cart__count js__cart-price">0</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="header__mobile">
+			<button class="header__burger"></button>
+			<a href="#" class="header__logo"><img src="img/mobile-logo.svg" alt="GreenSmart"></a>
+			<button class="header__search"></button>
+			<button class="header__profile" data-micromodal-trigger="auth-sms-modal"></button>
+			<button class="header__cart">
+				<span class="header-cart__count js__cart-price">3</span>
+			</button>
+		</div>
+		<div class="demo-cart demo-cart_active" style="display: none">
+			<div class="demo-cart__body">
+				<div class="demo-cart__item">
+					<button class="demo-cart__remove"></button>
+					<a href="#" class="demo-cart__image" style="background-image: url(/img/milk.jpg)"></a>
+					<a href="#" class="demo-cart__data">
+						<span class="demo-cart__title">Филе грудки утиное</span>
+						<span class="demo-cart__count">1 шт Х 795 ₽/0,93 л</span>
+					</a>
+				</div>
+				<div class="demo-cart__item">
+					<button class="demo-cart__remove"></button>
+					<a href="#" class="demo-cart__image" style="background-image: url(/img/milk.jpg)"></a>
+					<a href="#" class="demo-cart__data">
+						<span class="demo-cart__title">Филе грудки утиное</span>
+						<span class="demo-cart__count">1 шт Х 795 ₽/0,93 л</span>
+					</a>
+				</div>
+				<div class="demo-cart__item">
+					<button class="demo-cart__remove"></button>
+					<a href="#" class="demo-cart__image" style="background-image: url(/img/milk.jpg)"></a>
+					<a href="#" class="demo-cart__data">
+						<span class="demo-cart__title">Филе грудки утиное</span>
+						<span class="demo-cart__count">1 шт Х 795 ₽/0,93 л</span>
+					</a>
+				</div>
+				<div class="demo-cart__footer">
+					<a href="#" class="demo-cart__button">Перейти в корзину</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<section class="cart">
+	<div class="container">
+		<div class="cart__container">
+			<div class="cart-empty" style="display: none">
+				<img src="img/cat.svg" alt="" class="cart-empty__image">
+				<p class="cart-empty__title">В корзине нет продуктов</p>
+				<p class="cart-empty__subtitle">в ней временно живёт наш котик </p>
+				<a href="#" class="button button--centered cart-empty__button">Перейти в каталог</a>
+			</div>
+			<div class="cart__block cart__block--left">
+				<div class="cart-progressbar">
+					<p class="cart-progressbar__title desktop-only">До бесплатной доставки осталось <b>2 271 ₽</b></p>
+					<div class="cart-progressbar__container">
+						<div class="cart-progressbar__volume cart-progressbar__volume--completed">
+							<div class="cart-progressbar__filler" style="width: 100%"></div>
+						</div>
+						<div class="cart-progressbar__volume">
+							<div class="cart-progressbar__filler" style="width: 35%"></div>
+						</div>
+					</div>
+					<div class="cart-progressbar__info">
+						<p class="cart-progressbar__text">мин. заказ <b>1 500 ₽</b></p>
+						<p class="cart-progressbar__text">бесплат. доставка <b>5 000 ₽</b></p>
+					</div>
+				</div>
+				<div class="cart__items">
+					<div class="cart-item">
+						<button class="cart-item__delete"></button>
+						<img src="img/tomato.png" alt="" class="cart-item__img">
+						<div class="cart-item__info">
+							<p class="cart-item__title">Томаты на ветке</p>
+							<p class="cart-item__by">от Натальи и Юрия Лешан</p>
+							<div class="cart-item__pricing">
+								<p class="cart-item__price">125 <span>₽ / кг</span></p>
+								<div class="cart-item__quantity">
+									<button class="cart-item__button cart-item__button--minus"></button>
+									<input type="text" class="cart-item__amount" value="1 шт">
+									<button class="cart-item__button cart-item__button--plus"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cart-item">
+						<button class="cart-item__delete"></button>
+						<img src="img/tomato.png" alt="" class="cart-item__img">
+						<div class="cart-item__info">
+							<p class="cart-item__title">Томаты на ветке</p>
+							<p class="cart-item__by">от Натальи и Юрия Лешан</p>
+							<div class="cart-item__pricing">
+								<p class="cart-item__price">125 <span>₽ / кг</span></p>
+								<div class="cart-item__quantity">
+									<button class="cart-item__button cart-item__button--minus"></button>
+									<input type="text" class="cart-item__amount" value="1 шт">
+									<button class="cart-item__button cart-item__button--plus"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cart-item">
+						<button class="cart-item__delete"></button>
+						<img src="img/tomato.png" alt="" class="cart-item__img">
+						<div class="cart-item__info">
+							<p class="cart-item__title">Томаты на ветке</p>
+							<p class="cart-item__by">от Натальи и Юрия Лешан</p>
+							<div class="cart-item__pricing">
+								<p class="cart-item__price">125 <span>₽ / кг</span></p>
+								<div class="cart-item__quantity">
+									<button class="cart-item__button cart-item__button--minus"></button>
+									<input type="text" class="cart-item__amount" value="1 шт">
+									<button class="cart-item__button cart-item__button--plus"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cart-item">
+						<button class="cart-item__delete"></button>
+						<img src="img/tomato.png" alt="" class="cart-item__img">
+						<div class="cart-item__info">
+							<p class="cart-item__title">Томаты на ветке</p>
+							<p class="cart-item__by">от Натальи и Юрия Лешан</p>
+							<div class="cart-item__pricing">
+								<p class="cart-item__price">125 <span>₽ / кг</span></p>
+								<div class="cart-item__quantity">
+									<button class="cart-item__button cart-item__button--minus"></button>
+									<input type="text" class="cart-item__amount" value="1 шт">
+									<button class="cart-item__button cart-item__button--plus"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cart__controls desktop-only">
+					<button class="cart__control">Добавить продукты</button>
+					<button class="cart__control">Очистить корзину</button>
+				</div>
+			</div>
+			<div class="break mobile-only"></div>
+			<div class="cart__see-more mobile-only">Показать еще..</div>
+			<div class="cart__block cart__block--right">
+				<form class="cart-form">
+					<p class="cart-form__top mobile-only">На сумму<span>1 500 <span>₽</span></span></p>
+					<p class="cart-form__title">Оформление заказа</p>
+					<div class="cart-form__item">
+						<p class="cart-form__label">Адрес доставки</p>
+						<input type="text" class="cart-form__input cart-form__input--address" value="Москва, поселение Внуковское, улица Анненковская, дом 25, квартира 7">
+						<button class="cart-form__button cart-form__button--address"></button>
+					</div>
+					<hr class="cart-form__delimiter">
+					<div class="cart-form__item desktop-only">
+						<p class="cart-form__label">Дата и время доставки</p>
+						<div class="cart-form__dates">
+							<div class="cart-form__date cart-form__date--disabled">сегодня</div>
+							<div class="cart-form__date cart-form__date--disabled">завтра</div>
+							<div class="cart-form__date cart-form__date--disabled">25 ср</div>
+							<div class="cart-form__date cart-form__date--disabled">26 чт</div>
+							<div class="cart-form__date cart-form__date--disabled">27 пт</div>
+							<div class="cart-form__date cart-form__date--disabled">28 сб</div>
+							<div class="cart-form__date cart-form__date--disabled">29 вс</div>
+							<div class="cart-form__date">30 пн</div>
+							<div class="cart-form__date">31 вт</div>
+							<div class="cart-form__date">01 ср</div>
+							<div class="cart-form__date">02 чт</div>
+							<div class="cart-form__date cart-form__date--checked">03 пт</div>
+							<div class="cart-form__date">04 сб</div>
+							<div class="cart-form__date">05 вс</div>
+						</div>
+						<hr class="cart-form__delimiter">
+						<div class="cart-form-hours">
+							<div class="cart-form-hours__item">
+								<div class="cart-form-hours__title cart-form-hours__title--all cart-form-hours__title--selected">В течение дня с 7:00 до 24:00 <span>349 ₽</span></div>
+							</div>
+							<div class="cart-form-hours__item">
+								<div class="cart-form-hours__title cart-form-hours__title--selected">первая половина дня</div>
+								<div class="cart-form-hours__list cart-form-hours__first-day">
+									<div class="cart-form-hours__option cart-form-hours__option--selected cart-form-hours__first-part">7:00 - 15:00<span>349 ₽</span></div>
+								</div>
+								<div class="cart-form-hours__selection cart-form-hours__selection--selected">
+									<p class="cart-form-hours__text">7:00 - 15:00<span>349 ₽</span></p>
+									<button class="cart-form-hours__change"></button>
+								</div>
+							</div>
+							<div class="cart-form-hours__item">
+								<div class="cart-form-hours__title">вторая половина дня</div>
+								<div class="cart-form-hours__list cart-form-hours__list--visible cart-form-hours__second-part">
+									<div class="cart-form-hours__option cart-form-hours__option--selected">15:00 - 17:00<span>349 ₽</span></div>
+									<div class="cart-form-hours__option">17:00 - 19:00<span>349 ₽</span></div>
+									<div class="cart-form-hours__option">19:00 - 21:00<span>349 ₽</span></div>
+									<div class="cart-form-hours__option">21:00 - 24:00<span>349 ₽</span></div>
+								</div>
+								<div class="cart-form-hours__selection">
+									<p class="cart-form-hours__text">17:00 - 19:00<span>349 ₽</span></p>
+									<button class="cart-form-hours__change"></button>
+								</div>
+							</div>
+							<div class="cart-form-hours__item">
+								<div class="cart-form-hours__title">указать точное время</div>
+								<input type="text" class="cart-form-hours__input cart-form-hours__input--hidden cart-form-hours__choose-time">
+								<div class="cart-form-hours__selection">
+									<p class="cart-form-hours__text">17:00<span>349 ₽</span></p>
+									<button class="cart-form-hours__change"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cart-form__item mobile-only">
+						<p class="cart-form__label">Дата и время доставки</p>
+						<div class="cart-form__altdates">
+							<div class="cart-form__altdate cart-form__altdate--disabled">14 пн</div>
+							<div class="cart-form__altdate cart-form__altdate--checked">15 вт</div>
+							<div class="cart-form__altdate cart-form__altdate--disabled">16 ср</div>
+							<div class="cart-form__altdate">17 чт</div>
+							<div class="cart-form__altdate">18 пт</div>
+							<div class="cart-form__altdate">19 сб</div>
+							<div class="cart-form__altdate">20 вс</div>
+						</div>
+						<div class="cart-form-althours">
+							<div class="cart-form-althours__radios">
+								<label class="cart-form-althours__label">
+									<input type="radio" name="hours-mobile" class="cart-form-althours__radio" checked>
+									<span>Доставка с 8 до 13</span>
+								</label>
+								<label class="cart-form-althours__label">
+									<input type="radio" name="hours-mobile" class="cart-form-althours__radio">
+									<span>Доставка с 11 до 16</span>
+								</label>
+								<label class="cart-form-althours__label">
+									<input type="radio" name="hours-mobile" class="cart-form-althours__radio">
+									<span>Доставка с 16 до 19</span>
+								</label>
+								<label class="cart-form-althours__label">
+									<input type="radio" name="hours-mobile" class="cart-form-althours__radio">
+									<span>Доставка с 19 до 22</span>
+								</label>
+							</div>
+							<div class="cart-form-althours__arbitrary">
+								<p class="cart-form-althours__text">Указать точное время</p>
+								<input type="text" class="cart-form-althours__input">
+							</div>
+						</div>
+					</div>
+					<div class="cart-form__item">
+						<p class="cart-form__label">Телефон</p>
+						<input type="tel" class="cart-form__input" placeholder="+7 (999) 999 - 99 - 99">
+					</div>
+					<div class="cart-form__item cart-form__item--hidden">
+						<p class="cart-form__label cart-form__label--confirmation">Код выслан на номер +7 977 853-38-15</p>
+						<button class="cart-form__button cart-form__button--inline cart-form__button--change">Изменить</button>
+						<input type="text" class="cart-form__input cart-form__input--confirmation">
+						<button class="cart-form__button cart-form__button--inline cart-form__button--repeat">Отправить код повторно</button>
+					</div>
+					<div class="cart-form__item-row">
+						<div class="cart-form__item cart-form__item--paired">
+							<p class="cart-form__label">Имя</p>
+							<input type="text" class="cart-form__input cart-form__input--required" placeholder="Виталий">
+						</div>
+						<div class="cart-form__item cart-form__item--paired">
+							<p class="cart-form__label">E-mail</p>
+							<input type="email" class="cart-form__input cart-form__input--validated" placeholder="name@mail.ru">
+						</div>
+					</div>
+					<hr class="cart-form__delimiter">
+					<div class="cart-form__item-row">
+						<div class="cart-form__item cart-form__item--paired">
+							<label class="cart-form__label cart-form__label--radio">
+								<input type="radio" name="payment-method" class="cart-form__radio" checked>
+								<span>Онлайн оплата</span>
+							</label>
+							<label class="cart-form__label cart-form__label--radio">
+								<input type="radio" name="payment-method" class="cart-form__radio">
+								<span>Оплата наличными</span>
+							</label>
+							<label class="cart-form__label cart-form__label--radio">
+								<input type="radio" name="payment-method" class="cart-form__radio">
+								<span>Использовать счет баланса</span>
+							</label>
+						</div>
+						<div class="cart-form__item cart-form__item--paired">
+							<p class="cart-form__label cart-form__label--promocode">Промокод</p>
+							<input type="text" class="cart-form__input cart-form__input--promocode" placeholder="сидимдома">
+							<button class="cart-form__button cart-form__button--disabled cart-form__button--promocode"></button>
+							<p class="cart-form__smalltext cart-form__smalltext--warning" style="display: none">Минимальная сумма заказа для этого промокода 2000 ₽</p>
+							<p class="cart-form__smalltext cart-form__smalltext--success" style="display: none">Успешно применён</p>
+						</div>
+					</div>
+					<div class="cart-form__item cart-form__item--contactless">
+						<label class="cart-form__label cart-form__label--checkbox cart-form__label--contactless">
+							<input type="checkbox" class="cart-form__checkbox">
+							<span>Оставить заказ у двери</span>
+						</label>
+						<p class="cart-form__smalltext cart-form__smalltext--contactless">Опция доступна только при оплате онлайн и с Apple Pay</p>
+					</div>
+					<p class="cart-form__warning">Cумма заказа будет удержана на Вашем счету. Итоговая сумма может быть изменена ввиду наличия в корзине весовых товаров и будет списана только при получении заказа у курьера, когда Вы примите окончательное решение о покупке.</p>
+					<hr class="cart-form__delimiter">
+					<div class="cart-form__item">
+						<label class="cart-form__label cart-form__label--checkbox">
+							<input type="checkbox" class="cart-form__checkbox">
+							<span>Размещая заказ, я соглашаюсь с политикой обработки персональных данных и пользовательским соглашением</span>
+						</label>
+						<label class="cart-form__label cart-form__label--checkbox">
+							<input type="checkbox" class="cart-form__checkbox">
+							<span>Получать персональные предложения, скидки, свежие новости и информацию об акциях GREENSMART</span>
+						</label>
+					</div>
+					<div class="total">
+						<div class="total__item">
+							<p class="total__text">Сумма заказа:</p>
+							<p class="total__text total__text--price">1 500 <span>₽</span></p>
+						</div>
+						<div class="total__item">
+							<p class="total__text total__text--small">Стоимость доставки</p>
+							<p class="total__text total__text--delivery">249 <span>₽</span></p>
+						</div>
+						<div class="total__item">
+							<p class="total__text total__text--small">Скидка по промокоду</p>
+							<p class="total__text total__text--delivery">500 <span>₽</span></p>
+						</div>
+						<div class="total__item total__item--total">
+							<p class="total__text">Итого:</p>
+							<p class="total__text total__text--price total__text--sum">1 849 <span>₽</span></p>
+						</div>
+						<div class="total__item total__item--hidden">
+							<p class="total__warning">Минимальная сумма заказа 1500 ₽ <br>Пожалуйста, пополните свою корзину ещё на 793 ₽</p>
+						</div>
+					</div>
+					<button class="cart-form__button cart-form__button--submit">Оформить заказ<span class="desktop-only"> на 705 ₽</span></button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="popup">
+	<div class="popup__content">
+		<button class="popup__close"></button>
+		<div class="popup-payment">
+			<form class="popup-payment__form">
+				<div class="popup-payment__cardholder">
+					<div class="popup-payment__card popup-payment__card--front">
+						<div class="popup-payment__top-images">
+							<div class="popup-payment__visa-mir">
+								<img src="img/payment-left.svg" alt="">
+								<img src="img/payment-center.svg" alt="">
+							</div>
+							<img src="img/payment-right.svg" alt="">
+						</div>
+						<input type="text" class="popup-payment__input popup-payment__input--number" placeholder="Номер карты">
+						<div class="popup-payment__date">
+							<div class="popup__left-date">
+								<input type="text" class="popup-payment__input popup-payment__input---month" placeholder="Месяц">
+								/
+								<input type="text" class="popup-payment__input popup-payment__input--year" placeholder="Год">
+							</div>
+							<div class="popup__right-date">
+								<input type="text" class="popup-payment__input popup-payment__input--year" placeholder="CVC">
+							</div>
+						</div>
+					</div>
+				</div>
+				<button class="button button--centered popup-payment__button">Оплатить</button>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="modal" id="address-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="popup__content popup-address modal__body" aria-modal="true">
+			<button class="popup__close" data-micromodal-close></button>
+			<div class="popup-address__upper">
+				<p class="popup-address__title">Укажите адрес доставки</p>
+				<form class="popup-address-form">
+					<div class="popup-address-form__item">
+						<p class="popup-address-form__label">Адрес</p>
+						<input type="text" class="popup-address-form__input js__yandex-map_suggest">
+					</div>
+					<!-- <div class="popup-address-form__item">
+						<p class="popup-address-form__label">Улица</p>
+						<input type="text" class="popup-address-form__input">
+					</div>
+					<div class="popup-address-form__item popup-address-form__item--paired">
+						<p class="popup-address-form__label">Дом/Корпус</p>
+						<input type="text" class="popup-address-form__input">
+					</div>
+					<div class="popup-address-form__item popup-address-form__item--paired">
+						<p class="popup-address-form__label">Квартира</p>
+						<input type="text" class="popup-address-form__input">
+					</div> -->
+					<div class="popup-address-form__item">
+						<p class="popup-address-form__label">Комментарий курьеру</p>
+						<textarea class="popup-address-form__textarea"></textarea>
+					</div>
+					<button class="button button--centered popup-address-form__button">Применить</button>
+				</form>
+			</div>
+			<div class="popup-address__map js__yandex-map"></div>
+		</div>
+	</div>
+</div>
+<div class="popup">
+	<div class="popup__content">
+		<button class="popup__close"></button>
+		<div class="popup-thanks">
+			<p class="popup-thanks__title">Спасибо за заказ.</p>
+			<p class="popup-thanks__subtitle">Номер вашего заказа <span>1218</span></p>
+			<p class="popup-thanks__text">В <a href="#" class="popup-thanks__link">личном кабинете</a> Вы можете отслеживать статус выполнения заказа</p>
+		</div>
+	</div>
+</div>
+
+<footer class="footer desktop-only">
+	<div class="footer__container">
+		<div class="footer__columns">
+			<div class="footer__column">
+				<div class="footer__title">Для клиентов</div>
+				<a href="#" class="footer__link">Доставка и оплата</a>
+				<a href="#" class="footer__link">Доставка по подписке</a>
+				<a href="#" class="footer__link">Предложения от партнеров</a>
+				<a href="#" class="footer__link">Реферальная программа</a>
+				<a href="#" class="footer__link">Возврат продукции</a>
+				<a href="#" class="footer__link">Рецепты</a>
+				<a href="#" class="footer__link">Отзывы</a>
+			</div>
+			<div class="footer__column desktop-only">
+				<div class="footer__title">О компании</div>
+				<a href="#" class="footer__link">О нас</a>
+				<a href="#" class="footer__link">Новости</a>
+				<a href="#" class="footer__link">Вопросы и ответы</a>
+				<div class="footer__app">
+					<div class="footer__app-name">Greensmart</div>
+					<div class="footer__app-description">Делаем жизнь проще и легче</div>
+					<button class="footer__app-button">
+						<img src="img/footer-app-ico.png" alt="" class="footer__app-button-img">
+						<span class="footer__app-button-title">Загрузить в App Store</span>
+					</button>
+				</div>
+			</div>
+			<div class="footer__column desktop-only">
+				<div class="footer__title">Партнеры</div>
+				<a href="#" class="footer__link">Наши фермеры</a>
+				<a href="#" class="footer__link">Анкета поставщика</a>
+				<a href="#" class="footer__link">Обратная связь</a>
+				<div class="footer__payments desktop-only">
+					<img src="img/payments.svg" alt="VISA, MasterCard, Maestro, МИР">
+				</div>
+			</div>
+			<div class="footer__column">
+				<a href="tel:+74996536766" class="footer__phone">+7 499 653 67 66</a>
+				<a href="tel:+79778533815" class="footer__phone">+7 977 853 38 15</a>
+				<div class="footer__time">Ежедневно с 10 до 20</div>
+				<div class="footer__email desktop-only">feedback@greensmart.ru</div>
+				<div class="footer__socials">
+					<a href="#" class="footer__social footer__social-facebook"></a>
+					<a href="#" class="footer__social footer__social-instagram"></a>
+					<a href="#" class="footer__social footer__social-vkontakte"></a>
+					<a href="#" class="footer__social footer__social-twitter"></a>
+				</div>
+				<div class="footer__fun">Мы любим общаться с вами</div>
+				<div class="footer__payments mobile-only">
+					<img src="img/payments.svg" alt="VISA, MasterCard, Maestro, МИР">
+				</div>
+			</div>
+		</div>
+		<div class="footer__legals">
+			<div class="footer__copyright">© 2018-2020 – Greensmart – доставка свежих фермерских продуктов на дом</div>
+			<div class="footer__documents desktop-only">
+				<a href="#">Оферта</a>
+				<a href="#">Политика конфиденциальности</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<div class="footer-mobile mobile-only">
+	<div class="container">
+		<div class="footer-mobile__content">
+			<div class="footer-mobile__content-row1">
+				<a href="#" class="footer-mobile__link-app">
+				<img src="img/footer-app-ico.png" alt="">
+				<span>Загрузите в App Store</span>
+				</a>
+				<div class="footer-mobile__socials">
+					<a href="#" class="footer-mobile__social footer-mobile__social-facebook"></a>
+					<a href="#" class="footer-mobile__social footer-mobile__social-instagram"></a>
+					<a href="#" class="footer-mobile__social footer-mobile__social-vkontakte"></a>
+					<a href="#" class="footer-mobile__social footer-mobile__social-twitter"></a>
+				</div>
+			</div>
+			<div class="footer-mobile__content-row2">
+				<div class="footer-mobile__left-article"><span> Ежедневно с 10 до 20</span></div>
+				<div class="footer-mobile__right-numbers">
+					<div class="footer-mobile__first-number">
+						<img src="img/phone-footer.svg" alt="number-icon">
+						<span>+7 499 653 67 66</span>
+					</div>
+					<div class="footer-mobile__second-number">
+						<img src="img/phone-footer.svg" alt="number-icon">
+						<span>+7 977 853 38 15</span>
+					</div>
+				</div>
+			</div>
+			<div class="footer-mobile__content-row3">
+				<div class="footer-mobile__column-left">
+					<h6>Доставка и оплата</h6>
+					<h6>Возврат продукции</h6>
+					<h6>Доставка по подписке</h6>
+					<h6>Реферальная программа</h6>
+				</div>
+				<div class="footer-mobile__column-right">
+					<h6>Обратная связь</h6>
+					<h6>Рецепты</h6>
+					<h6>Отзывы</h6>
+					<h6>О нас</h6>
+				</div>
+			</div>
+			<div class="footer-mobile__content-row4">
+				<img src="img/mastercard.svg" alt="mastercard">
+				<img src="img/maestro.svg" alt="maestro">
+				<img src="img/visa.svg" alt="visa">
+				<img src="img/mir.svg" alt="mir">
+			</div>
+			<div class="footer-mobile__content-row5">
+				<p>© 2018-2020 Greensmart – доставка свежих фермерских продуктов на дом</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="auth-modal modal" id="auth-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body" aria-modal="true">
+			<button class="modal__close" data-micromodal-close></button>
+			<div class="modal__title">Войти на сайт</div>
+			<form class="modal__form">
+
+				<div class="modal__input modal__input--required">
+					<label for="auth-modal-email">E-mail/телефон</label>
+					<input type="text" id="auth-modal-email">
+				</div>
+
+				<div class="modal__input">
+					<label for="auth-modal-password">Пароль</label>
+					<button class="modal__show-password"></button>
+					<input type="password" id="auth-modal-password">
+					<div class="form__error">Пример ошибки заполнения поля</div>
+				</div>
+
+				<div class="auth-modal__other">
+					<div class="form__checkbox">
+						<input type="checkbox" id="auth-moda-remember" checked="">
+						<label for="auth-moda-remember">Запомнить меня</label>
+					</div>
+					<a href="#" class="auth-modal__forgot-password" data-micromodal-close data-micromodal-trigger="recovery-modal">Забыли пароль?</a>
+				</div>
+				<div class="text-center">
+					<button class="modal__submit" type="submit">Войти</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="sms-modal modal" id="auth-sms-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body sms-modal__body" aria-modal="true">
+			<button class="modal__close" data-micromodal-close></button>
+			<div class="modal__title">Войти на сайт</div>
+			<form class="modal__form">
+				<div class="modal__input modal__input--required">
+					<label for="sms-modal-phone">Tелефон</label>
+					<input type="text" id="sms-modal-phone">
+				</div>
+				<div class="modal__input sms-modal__token">
+					<input type="text">
+					<div class="form__error">Укажите код из смс</div>
+					<a href="#" class="sms-modal__resend">Выслать повторно</a>
+				</div>
+
+				<div class="sms-modal__send" style="display: none">
+					<div class="text-center">
+						<button class="modal__submit" type="submit">Получить код из СМС</button>
+					</div>
+				</div>
+				<div class="sms-modal__password-login">
+					<a href="#" data-micromodal-close data-micromodal-trigger="auth-modal">Войти с помощью пароля</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="register-modal modal" id="register-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body" aria-modal="true">
+			<button class="modal__close" data-micromodal-close></button>
+			<div class="modal__title register-modal__title">Регистрация в Greensmart</div>
+			<form class="modal__form">
+				<div class="modal__input modal__input--required">
+					<label for="register-modal-name">Имя</label>
+					<input type="text" id="register-modal-name">
+				</div>
+				<div class="modal__input modal__input--required">
+					<label for="register-modal-phone">Телефон</label>
+					<input type="text" id="register-modal-phone">
+				</div>
+				<div class="modal__input modal__input--required">
+					<label for="register-modal-email">E-mail</label>
+					<input type="text" id="register-modal-email">
+				</div>
+				<div class="modal__input">
+					<label for="register-modal-password">Пароль</label>
+					<input type="password" id="register-modal-password">
+					<button class="modal__show-password"></button>
+				</div>
+				<div class="auth-modal__other">
+					<div class="form__checkbox">
+						<input type="checkbox" id="register-modal-remember" checked="">
+						<label for="register-modal-remember">Запомнить меня</label>
+					</div>
+					<a href="#" class="register-modal__forgot-password">Забыли пароль?</a>
+				</div>
+				<button class="modal__submit" type="submit">Войти</button>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="recovery-modal modal" id="recovery-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body" aria-modal="true">
+			<button class="modal__close" data-micromodal-close></button>
+			<div class="modal__title recovery-modal__title">Восстановление пароля</div>
+			<form class="modal__form">
+				<div class="modal__input modal__input--required">
+					<label for="recovery-modal-email">E-mail/телефон</label>
+					<input type="text" id="recovery-modal-email">
+				</div>
+				<div class="text-center">
+					<button class="modal__submit recovery-modal__submit" type="submit">Восстановить пароль</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="map-modal modal" id="map-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__body map-modal__body" aria-modal="true">
+			<button class="map-modal__close" data-micromodal-close></button>
+			<div class="map-modal__content">
+				<div class="map-modal__title">Укажите адрес доставки</div>
+
+				<form class="map-modal__form">
+
+					<div class="modal__input map-modal__input">
+						<label for="map-modal-address">Улица, дом/корпус</label>
+						<input type="text" id="map-modal-address">
+					</div>
+
+					<div class="modal__input map-modal__input map-modal__input-half">
+						<label for="map-modal-appartoments">Квартира</label>
+						<input type="text" id="map-modal-appartoments">
+					</div>
+
+					<button class="modal__submit map-modal__submit" type="submit">Применить</button>
+
+				</form>
+			</div>
+			<div class="map-modal__map"></div>
+		</div>
+	</div>
+</div>
+
+<script src="js/micromodal.min.js" async></script>
+<script src="js/tiny-slider.min.js" async></script>
+<script src="js/script.js" async></script>
+
+</body>
+</html>
